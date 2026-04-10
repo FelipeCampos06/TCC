@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color:#323030 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+body::before {
+    content: "";
+    width: 180px;
+    height: 180px;
+    background-image: url("../img/logo_barbearia.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: -40px;
+}
+
+.voltar img {
+    position: absolute;
+    top: 1%;
+    left: 25%;
+    width: 50px;
+    height: 50px;
+}
+.fundo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #3C82A5;
+    margin: 80px;
+    padding: 10px;
+    gap: 50px;
+    height: 80px;
+    width: 100vh;
+}
+ 
+.texto {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+ 
+.element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ 
+/* ===== BOTÕES ===== */
+.dias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3C82A5;
+    width: 100vh;    /* Antes era 100vh, que quebrava no celular */
+    max-width: 400px; /* Limite para desktop */
+    margin: 20px auto;
+    border-radius: 5px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    appearance: none;
+}
+ 
+/* ============================
+      RESPONSIVIDADE CELULAR
+=============================== */
+@media (max-width: 768px) {
+    .voltar img {
+        left: 5%;
+        width: 40px;
+        height: 40px;
+    }
+ 
+    .fundo {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+        margin-top: 40px;
+    }
+ 
+    .dias {
+        font-size: 18px;
+        height: 45px;
+        max-width: 90%; /* Ocupa quase a largura total da tela */
+    }
+}
+ 
+@media (max-width: 480px) {
+    .voltar img {
+        width: 35px;
+        height: 35px;
+    }
+ 
+    .dias {
+        font-size: 16px;
+        height: 40px;
+    }
+}

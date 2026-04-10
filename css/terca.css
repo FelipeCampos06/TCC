@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color:#323030 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+body::before {
+    content: "";
+    width: 180px;
+    height: 180px;
+    background-image: url("../img/logo_barbearia.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: -40px;
+}
+ 
+.voltar img {
+    position: absolute;
+    top: 1%;
+    left: 25%;
+    width: 50px;
+    height: 50px;
+}
+ 
+/* FAIXA (TERÇA-FEIRA) */
+.fundo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    background-color: #4a88a8;
+    color: white;
+    margin-top: 100px;
+    border-radius: 10px;
+}
+ 
+ 
+/* TEXTO TERÇA */
+.texto h1 {
+   
+    padding: 10px 20px;
+   
+    font-size: 18px;
+}
+ 
+/* SUBTITULO */
+.almoco h1 {
+    background-color: #4a88a8;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 20px 0;
+}
+ 
+/* HORÁRIOS */
+.dia {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+ 
+/* BOTÕES */
+.hora {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80px;
+    height: 45px;
+}
+ 
+.horat {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80px;
+    height: 45px;
+}
+ 
+.hora button,
+.horat button {
+    width: 100%;
+    height: 100%;
+    background-color: #4a88a8;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+ 
+/* RESPONSIVO */
+@media (max-width: 480px) {
+ 
+    body::before {
+        width: 95%;
+        height: 90%;
+    }
+ 
+    .texto h1 {
+        font-size: 16px;
+    }
+ 
+    .almoco h1 {
+        font-size: 14px;
+    }
+ 
+    .hora,
+    .horat {
+        width: 70px;
+        height: 40px;
+    }
+ 
+    .hora button,
+    .horat button {
+        font-size: 12px;
+    }
+}

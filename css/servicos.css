@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color:#323030 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+body::before {
+    content: "";
+    width: 180px;
+    height: 180px;
+    background-image: url("../img/logo_barbearia.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: -40px;
+}
+
+
+.voltar img {
+    position: absolute;
+    top: 1%;
+    left: 25%;
+    width: 50px;
+    height: 50px;
+}
+
+.fundo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #3C82A5;
+    margin-top: 80px;
+    padding: 10px;
+    gap: 50px;
+    height: 80px;
+    width: 100vh;
+}
+
+.texto {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================================
+                 VALORES (RESPONSIVO)
+=============================================== */
+.valores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Corrigido: antes era 100vh */
+    max-width: 400px;
+    /* Limite para desktop */
+    margin: 20px auto;
+    border-radius: 5px;
+    height: 50px;
+}
+
+.valores button {
+    width: 100%;
+    height: 100%;
+    background-color: #3C82A5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================================
+              RESPONSIVIDADE MOBILE
+=============================================== */
+
+@media (max-width: 768px) {
+    .voltar img {
+        left: 5%;
+        width: 40px;
+        height: 40px;
+    }
+
+    .fundo {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .valores {
+        max-width: 90%;
+        /* Ocupa quase toda a largura */
+        height: 45px;
+    }
+
+    .valores button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .voltar img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .valores {
+        height: 40px;
+    }
+
+    .valores button {
+        font-size: 15px;
+    }
+}

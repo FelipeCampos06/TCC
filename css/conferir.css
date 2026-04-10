@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color:#323030 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+body::before {
+    content: "";
+    width: 180px;
+    height: 180px;
+    background-image: url("../img/logo_barbearia.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: -40px;
+}
+
+.voltar img {
+    position: absolute;
+    top: 1%;
+    left: 25%;
+    width: 50px;
+    height: 50px;
+}
+
+
+.texto {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.fu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.conf {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(37, 37, 37, 1);
+    width: 300px;
+    height: 100px;
+    border-radius: 35px;
+    border: 2px solid blue;
+    cursor: pointer;
+    text-decoration: none;
+
+
+}
+
+.age {
+
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.can{
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.ce {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(37, 37, 37, 100);
+    width: 300px;
+    height: 100px;
+    border-radius: 35px;
+    border: 2px solid red;
+    cursor: pointer;
+ 
+}
+
+.lar{
+        
+    color: white;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+.tabela {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000c5;
+    height: 100px;
+    margin-top: 100px;
+
+}
+
+.horario{
+    color: white;
+}
+
+/* 📱 RESPONSIVIDADE (somente ajustes em telas pequenas) */
+@media (max-width: 480px) {
+
+    .voltar img {
+        left: 5%;
+        width: 40px;
+        height: 40px;
+    }
+
+    .fundo,
+    .tabela {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .texto {
+        text-align: center;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .fu,
+    .can {
+        margin-top: 40px;
+    }
+
+    .conf,
+    .ce {
+        width: 90%;
+        max-width: 320px;
+        height: 80px;
+    }
+
+    .age,
+    .lar {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .horario {
+        font-size: 18px;
+        text-align: center;
+    }
+}
