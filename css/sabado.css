@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 }
-
+ 
 body {
     background-color:#323030 ;
     display: flex;
@@ -12,7 +12,7 @@ body {
     text-align: center;
     font-family: 'Inter', sans-serif;
 }
-
+ 
 body::before {
     content: "";
     width: 180px;
@@ -25,7 +25,7 @@ body::before {
     margin-top: 30px;
     margin-bottom: -40px;
 }
-
+ 
 .voltar img {
     position: absolute;
     top: 1%;
@@ -33,75 +33,101 @@ body::before {
     width: 50px;
     height: 50px;
 }
-
+ 
+/* FAIXA (TERÇA-FEIRA) */
 .fundo {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #000000c5;
-    margin: 60px 0 30px 0;
+    background-color: #3C82A5;
+    color: white;
+    margin: 80px;
     padding: 10px;
     gap: 50px;
-    height: 80px;
+    height: 20px;
+    width: 200px;
+    border-radius: 10px;
 }
-
-.texto {
+ .fun {
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #3C82A5;
     color: white;
+    margin-top: -50px;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: auto;
+    width: 400px;
+    border-radius: 10px;
 }
-
-/* ===============================
-       ORGANIZAÇÃO DAS HORAS
-================================ */
-
-.manha,
-.tarde {
+ 
+.text {
+ font-size: 10px;
+}
+ 
+ 
+/* TEXTO TERÇA */
+.texto h1 {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+ 
+/* SUBTITULO */
+.almoco h1 {
+    background-color: #4a88a8;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 20px 0;
+}
+ 
+/* HORÁRIOS */
+/* HORÁRIOS */
+/* HORÁRIOS */
+.dia {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    /* Ajuste de largura para caber exatamente dois botões por linha */
+    max-width: 200px;
+    margin: 0 auto; /* Centraliza o bloco inteiro na tela */
+}  
+ 
+/* Mantendo suas classes exatamente como estavam */
+.hora {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap; /* permite quebrar linha no celular */
+    width: 80px;
+    height: 45px;
 }
-
-.hora, .horat {
+ 
+.horat {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    width: 100px;
-    margin: 20px;
-    border-radius: 5px;
-    height: 50px;
+    width: 80px;
+    height: 45px;
 }
-
-.hora button, .horat button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+ 
+.hora button,
+.horat button {
     width: 100%;
     height: 100%;
-    background-color: #000000c5;
+    background-color: #4a88a8;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     color: white;
-    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    font-family: Arial, sans-serif;
 }
-
-.almoco {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-/* =====================================
-        RESPONSIVIDADE MOBILE
-===================================== */
+ 
+/* RESPONSIVO */
 
 @media (max-width: 768px) {
 
@@ -112,48 +138,77 @@ body::before {
     }
 
     .fundo {
-        flex-direction: column;
-        gap: 20px;
-        height: auto;
-        padding: 20px;
+        width: 180px;
+        margin: 60px auto;
     }
 
-    /* linhas de horário quebram melhor */
-    .manha,
-    .tarde {
-        gap: 10px;
-        padding: 10px;
+    .fun {
+        width: 90%;
+        margin-top: -30px;
+        padding: 15px;
     }
 
-    .hora, .horat {
-        width: 80px;
-        height: 45px;
-        margin: 10px;
+    .texto h1 {
+        font-size: 16px;
     }
 
-    .hora button, .horat button {
+    .almoco h1 {
         font-size: 14px;
+    }
+
+    .dia {
+        max-width: 180px;
+        gap: 8px;
+    }
+
+    .hora,
+    .horat {
+        width: 70px;
+        height: 40px;
+    }
+
+    .hora button,
+    .horat button {
+        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
 
-    .voltar img {
-        width: 35px;
-        height: 35px;
+    body::before {
+        width: 140px;
+        height: 140px;
     }
 
-    .hora, .horat {
-        width: 70px;
-        height: 40px;
+    .fundo {
+        width: 160px;
     }
 
-    .hora button, .horat button {
-        font-size: 12px;
+    .fun {
+        width: 95%;
+        padding: 12px;
     }
 
-    .manha,
-    .tarde {
-        gap: 5px;
+    .texto h1 {
+        font-size: 14px;
+    }
+
+    .almoco h1 {
+        font-size: 13px;
+    }
+
+    .dia {
+        max-width: 160px;
+    }
+
+    .hora,
+    .horat {
+        width: 65px;
+        height: 38px;
+    }
+
+    .hora button,
+    .horat button {
+        font-size: 11px;
     }
 }

@@ -35,15 +35,15 @@ body::before {
 }
 
 .fundo {
-
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000000c5;
-    height: 150px;
-    margin-top: 150px;
-
-
+    text-align: center;
+    background-color: #3C82A5;
+    margin: 80px;
+    height: 100px;
+    width: 600px;
+    border-radius: 10px;
 }
 
 
@@ -54,7 +54,7 @@ body::before {
     align-items: center;
     text-align: center;
     color: rgb(21, 255, 0, 100);
-    font-size: 20px;
+    font-size: 35px;
 }
 
 .fu {
@@ -77,8 +77,7 @@ body::before {
     border: 2px solid blue;
     cursor: pointer;
     text-decoration: none;
-
-
+    margin-top: 200px;
 }
 
 .age {
@@ -88,8 +87,37 @@ body::before {
     text-decoration: none;
 }
 
+@media (max-width: 768px) {
 
-/* 🔽 RESPONSIVIDADE — sem mudar nada do código original */
+    .voltar img {
+        left: 8%;
+        width: 45px;
+        height: 45px;
+    }
+
+    .fundo {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        margin: 60px auto;
+    }
+
+    .texto {
+        font-size: 26px;
+        padding: 10px;
+    }
+
+    .fu {
+        margin-top: 120px;
+    }
+
+    .conf {
+        width: 260px;
+        height: 90px;
+        margin-top: 120px;
+    }
+}
+
 @media (max-width: 480px) {
 
     .voltar img {
@@ -99,14 +127,28 @@ body::before {
     }
 
     .fundo {
-        margin-top: 120px;
+        margin-top: 100px;
         height: auto;
         padding: 20px;
-        width: 90%;
+        width: 95%;
     }
 
     .texto {
-        font-size: 16px;
+        font-size: 18px;
         padding: 10px;
+    }
+
+    .fu {
+        margin-top: 80px;
+    }
+
+    .conf {
+        width: 220px;
+        height: 80px;
+        margin-top: 80px;
+    }
+
+    .age {
+        font-size: 16px;
     }
 }

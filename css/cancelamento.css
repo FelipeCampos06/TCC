@@ -35,77 +35,65 @@ body::before {
 }
 
 .fundo {
-    background-color: #000000c5;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 600px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.texto {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: yellow;
-    font-size: 20px;
-    padding: 20px;
-    /* evita amontoar */
+    background-color: #3C82A5;
+    margin: 80px;
+    height: 100px;
+    width: 600px;
+    border-radius: 10px;
 }
 
-.botao {
+
+.texto {
     display: flex;
-    gap: 20px;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    text-align: center;
+    color: red ;
+    font-size: 40px;
 }
 
-.botao button {
-    width: 120px;
-    height: 60px;
-    border-radius: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-}
+@media (max-width: 768px) {
 
-.sim {
-    background-color: blue;
-    color: white;
-}
-
-.nao {
-    background-color: red;
-    color: white;
-}
-
-/* 📱 Responsividade aprimorada */
-@media (max-width: 480px) {
     .voltar img {
-        left: 10%;
+        left: 8%;
+        width: 45px;
+        height: 45px;
+    }
+
+    .fundo {
+        width: 90%;
+        height: auto;
+        padding: 20px;
+        margin: 60px auto;
+    }
+
+    .texto {
+        font-size: 28px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .voltar img {
+        left: 5%;
         width: 40px;
         height: 40px;
+    }
+
+    .fundo {
+        margin-top: 100px;
+        height: auto;
+        padding: 20px;
+        width: 95%;
     }
 
     .texto {
         font-size: 18px;
         padding: 10px;
-    }
-
-    .botao {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .botao button {
-        width: 200%;
-        max-width: 300px;
-        align-items: center;
     }
 }

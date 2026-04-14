@@ -110,10 +110,14 @@ body{
 }
 
 
+/* ========================= */
+/* CELULAR */
+/* ========================= */
+
 @media (max-width: 480px){
 
 body{
-    background-position: center 160px;
+    background-position: center 150px;
 }
 
 .nome,
@@ -123,9 +127,9 @@ body{
 .tell,
 .cadastro{
 
-    width: 85%;
+    width: 90%;
     height: 45px;
-    font-size: 18px;
+    font-size: 17px;
 
 }
 
@@ -146,8 +150,7 @@ body{
 @media (max-width: 360px){
 
 body{
-    background-position: center 150px;
- 
+    background-position: center 140px;
 }
 
 .nome,
@@ -157,7 +160,7 @@ body{
 .tell,
 .cadastro{
 
-    width: 90%;
+    width: 92%;
     height: 40px;
     font-size: 16px;
 

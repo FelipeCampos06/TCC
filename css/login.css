@@ -88,24 +88,45 @@ body{
 }
 
 /* RESPONSIVIDADE — sem mexer no código original */
+
+@media (max-width: 768px) {
+
+    .email,
+    .senha,
+    .entrar,
+    .cadastro {
+        width: 85%;
+        max-width: 300px;
+        height: 45px;
+        font-size: 18px;
+        left: 50%;
+    }
+
+    .email { top: 55%; }
+    .senha { top: 62%; }
+    .entrar { top: 69%; }
+    .google { top: 76%; }
+    .cadastro { top: 82%; }
+
+}
+
 @media (max-width: 480px) {
 
-    .entrar {
-        top: 73%;              /* sobe um pouco para caber na tela */
-        width: 80%;            /* adapta ao tamanho do celular */
+    .email,
+    .senha,
+    .entrar,
+    .cadastro {
+        width: 90%;
         max-width: 300px;
         height: 45px;
-        font-size: 18px;
+        font-size: 17px;
         left: 50%;
     }
 
-    .email {
-        top: 80%;
-        width: 80%;
-        max-width: 300px;
-        height: 45px;
-        font-size: 18px;
-        left: 50%;
-    }
+    .email { top: 53%; }
+    .senha { top: 60%; }
+    .entrar { top: 67%; }
+    .google { top: 74%; }
+    .cadastro { top: 80%; }
 
 }
