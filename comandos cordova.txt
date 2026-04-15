@@ -1,6 +1,8 @@
-cordova create *Nome da pasta* com.exemplo.*Nome da pasta* *Nome da pasta*
+npm install -g cordova
 
-cd *Nome da pasta*
+cordova create tccapp com.exemplo.tccapp tccapp
+
+cd tccapp
 
 cordova platform add android
 
