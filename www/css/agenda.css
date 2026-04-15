@@ -34,7 +34,6 @@ body::before {
     width: 50px;
     height: 50px;
 }
-
 .fundo {
     display: flex;
     justify-content: center;
@@ -93,8 +92,8 @@ body::before {
         height: 40px;
     }
 
-   .fundo {
-        width: 85%;
+     .fundo {
+        width: 90%;
         height: auto;
         padding: 20px;
         gap: 20px;
@@ -113,7 +112,12 @@ body::before {
         width: 35px;
         height: 35px;
     }
- 
+
+    .fundo {
+        width: 85%;
+        padding: 15px;
+        margin: 40px auto;
+    }
     .dias {
         font-size: 16px;
         height: 40px;

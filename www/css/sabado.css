@@ -137,6 +137,11 @@ body::before {
         height: 40px;
     }
 
+    body::before {
+        width: 180px;
+        height: 180px;
+    }
+
     .fundo {
         width: 180px;
         margin: 60px auto;
@@ -176,8 +181,8 @@ body::before {
 @media (max-width: 480px) {
 
     body::before {
-        width: 140px;
-        height: 140px;
+        width: 180px;
+        height: 180px;
     }
 
     .fundo {

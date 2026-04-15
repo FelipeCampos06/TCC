@@ -137,9 +137,9 @@ body::before {
         height: 40px;
     }
 
-    .fundo {
+    body::before {
         width: 180px;
-        margin: 60px auto;
+        height: 180px;
     }
 
     .fun {
@@ -176,8 +176,8 @@ body::before {
 @media (max-width: 480px) {
 
     body::before {
-        width: 140px;
-        height: 140px;
+        width: 180px;
+        height: 180px;
     }
 
     .fundo {

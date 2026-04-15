@@ -103,6 +103,12 @@ body::before {
         margin: 60px auto;
     }
 
+    .img{
+      
+        padding: 40px;
+
+    }
+
     .perfil {
         width: 85%;
         height: auto;
@@ -133,6 +139,12 @@ body::before {
         margin: 40px auto;
     }
 
+    .img{
+      
+        padding: 40px;
+
+    }
+    
     .perfil {
         width: 85%;
         height: auto;
