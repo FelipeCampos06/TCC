@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "name": "com.exemplo.tcc",
   "displayName": "tcc",
+=======
+  "name": "com.exemplo.tccapp",
+  "displayName": "tccapp",
+>>>>>>> 63b4d05 (14/04)
   "version": "1.0.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
@@ -12,12 +17,23 @@
   ],
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
+<<<<<<< HEAD
   "devDependencies": {
     "cordova-android": "^14.0.1"
   },
+=======
+>>>>>>> 63b4d05 (14/04)
   "cordova": {
     "platforms": [
       "android"
     ]
+<<<<<<< HEAD
   }
 }
+=======
+  },
+  "devDependencies": {
+    "cordova-android": "^15.0.0"
+  }
+}
+>>>>>>> 63b4d05 (14/04)

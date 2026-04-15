@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color:#323030 ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+body::before {
+    content: "";
+    width: 180px;
+    height: 180px;
+    background-image: url("../img/logo_barbearia.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: -40px;
+}
+
+.voltar img {
+    position: absolute;
+    top: 1%;
+    left: 25%;
+    width: 50px;
+    height: 50px;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #3C82A5;
+    margin: 80px;
+    height: 80px;
+    width: 400px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+/* CONTAINER */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vh;
+  max-width: 400px;
+  text-align: center;
+}
+
+
+/* OPÇÕES (AGENDAR / CANCELAR) */
+.opcoes {
+  margin-top: -30px;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+
+}
+
+.icone {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+}
+
+/* PERFIL */
+.perfil {
+  margin-top: 70px;
+}
+
+.icone-perfil {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+
+  .voltar img {
+    left: 5%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .titulo {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+    margin: 60px auto;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .opcoes {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .icone {
+    width: 110px;
+    height: 110px;
+  }
+
+  .icone-perfil {
+    width: 110px;
+    height: 110px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .titulo {
+    width: 95%;
+    font-size: 16px;
+    padding: 12px 0;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .opcoes {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .icone {
+    width: 100px;
+    height: 100px;
+  }
+
+  .icone-perfil {
+    width: 100px;
+    height: 100px;
+  }
+
+  .perfil {
+    margin-top: 40px;
+  }
+
+}

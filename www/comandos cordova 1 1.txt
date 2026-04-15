@@ -1,0 +1,13 @@
+cordova create *Nome da pasta* com.exemplo.*Nome da pasta* *Nome da pasta*
+
+cd *Nome da pasta*
+
+cordova platform add android
+
+cordova run android
+
+cordova plugin add cordova-plugin-geolocation
+
+cordova run android --device
+
+adb devices
