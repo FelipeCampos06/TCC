@@ -20,7 +20,6 @@ body{
     top: 57%;       /* ↓↓ fica abaixo do botão ↓↓ */
     left: 50.5%;     
     transform: translateX(-50%);
-
     width: 300px;
     height: 50px;
     background-color: #ffffff;
@@ -35,7 +34,6 @@ body{
     top: 63%;       /* ↓↓ fica abaixo do botão ↓↓ */
     left: 50.5%;     
     transform: translateX(-50%);
-
     width: 300px;
     height: 50px;
     background-color: #ffffff;
@@ -52,7 +50,6 @@ body{
     top: 69%;       /* ↓↓ fica abaixo do botão ↓↓ */
     left: 50.5%;     
     transform: translateX(-50%);
-
     width: 300px;
     height: 50px;
     background-color: #ffffff;
@@ -67,7 +64,6 @@ body{
     top: 75%;       /* ↓↓ fica abaixo do botão ↓↓ */
     left: 50.5%;     
     transform: translateX(-50%);
-
     width: 300px;
     height: 50px;
     background-color: #ffffff;
@@ -82,7 +78,6 @@ body{
     top: 81%;       /* ↓↓ fica abaixo do botão ↓↓ */
     left: 50.5%;     
     transform: translateX(-50%);
-
     width: 300px;
     height: 50px;
     background-color: #ffffff;
@@ -98,7 +93,6 @@ body{
     top: 88%;         /* ↓↓ desce o botão ↓↓ */
     left: 50.5%;        
     transform: translateX(-50%);  /* CENTRALIZA certinho */
-    
     width: 300px;
     height: 50px;
     background-color: #3C82A5;
@@ -107,6 +101,7 @@ body{
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
     color: white;
     font-size: 20px;
+    cursor: pointer;
 }
 
 

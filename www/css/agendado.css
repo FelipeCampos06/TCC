@@ -94,6 +94,7 @@ body::before {
     height: 80px;
     width: 200px;
     margin-top: 300px;
+    cursor: pointer;
 }
 
 
