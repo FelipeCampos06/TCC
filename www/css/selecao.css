@@ -107,10 +107,12 @@ body::before {
   }
 
   .opcoes {
-    justify-content: space-around;
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 20px;
     width: 30%;
+    gap: 40px;
   }
 
   .icone {
@@ -127,10 +129,24 @@ body::before {
 
 @media (max-width: 480px) {
 
+  body::before {
+    width: 140px;
+    height: 140px;
+    margin-top: 20px;
+    margin-bottom: -30px;
+  }
+
+  .voltar img {
+    left: 5%;
+    width: 35px;
+    height: 35px;
+  }
+
   .titulo {
     width: 95%;
     font-size: 16px;
     padding: 12px 0;
+    margin: 50px auto;
   }
 
   .container {
@@ -138,24 +154,22 @@ body::before {
   }
 
   .opcoes {
-    justify-content: space-around;
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 20px;
     width: 30%;
+    gap: 40px;
   }
 
   .icone {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
   }
 
   .icone-perfil {
-    width: 100px;
-    height: 100px;
-  }
-
-  .perfil {
-    margin-top: 40px;
+    width: 90px;
+    height: 90px;
   }
 
 }

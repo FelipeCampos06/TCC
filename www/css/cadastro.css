@@ -116,29 +116,43 @@ body{
 
 @media (max-width: 480px){
 
-body{
-    background-position: center 150px;
+    body{
+        background-size: 350px; /* diminui a logo */
+        background-position: center 100px; /* ajusta posição */
+        background-attachment: scroll; /* evita bug no mobile */
+    }
+
+    .nome,
+    .email,
+    .senha,
+    .confsenha,
+    .tell,
+    .cadastro{
+
+        width: 90%;
+        height: 45px;
+        font-size: 17px;
+
+    }
+
+.nome{ 
+    top:50%; 
 }
-
-.nome,
-.email,
-.senha,
-.confsenha,
-.tell,
-.cadastro{
-
-    width: 90%;
-    height: 45px;
-    font-size: 17px;
-
+.email{ 
+    top:57%; 
 }
-
-.nome{ top:50%; }
-.email{ top:57%; }
-.senha{ top:64%; }
-.confsenha{ top:71%; }
-.tell{ top:78%; }
-.cadastro{ top:86%; }
+.senha{ 
+    top:64%; 
+}
+.confsenha{ 
+    top:71%; 
+}
+.tell{ 
+    top:78%; 
+}
+.cadastro{ 
+    top:86%; 
+}
 
 }
 
@@ -149,28 +163,42 @@ body{
 
 @media (max-width: 360px){
 
-body{
-    background-position: center 140px;
-}
+    body{
+        background-size: 350px; /* diminui a logo */
+        background-position: center 100px; /* ajusta posição */
+        background-attachment: scroll; /* evita bug no mobile */
+    }
 
-.nome,
-.email,
-.senha,
-.confsenha,
-.tell,
-.cadastro{
+    .nome,
+    .email,
+    .senha,
+    .confsenha,
+    .tell,
+    .cadastro{
 
-    width: 92%;
-    height: 40px;
-    font-size: 16px;
+        width: 92%;
+        height: 40px;
+        font-size: 16px;
 
-}
+    }         
 
-.nome{ top:48%; }
-.email{ top:55%; }
-.senha{ top:62%; }
-.confsenha{ top:69%; }
-.tell{ top:76%; }
-.cadastro{ top:84%; }
+    .nome{ 
+        top:48%; 
+    }
+    .email{ 
+        top:55%; 
+    }
+    .senha{ 
+        top:62%; 
+    }
+    .confsenha{ 
+        top:69%; 
+    }
+    .tell{ 
+        top:76%; 
+    }
+    .cadastro{ 
+        top:84%; 
+    }
 
-}
+    }

@@ -91,6 +91,12 @@ body{
 
 @media (max-width: 768px) {
 
+    body{
+        background-size: 350px; /* diminui a logo */
+        background-position: center 120px; /* ajusta posição */
+        background-attachment: scroll; /* evita bug no mobile */
+    }
+    
     .email,
     .senha,
     .entrar,
@@ -112,11 +118,17 @@ body{
 
 @media (max-width: 480px) {
 
+    body{
+        background-size: 350px; /* menor ainda */
+        background-position: center 100px;
+        background-attachment: scroll;
+    }
+
     .email,
     .senha,
     .entrar,
     .cadastro {
-        width: 90%;
+        width: 85%;
         max-width: 300px;
         height: 45px;
         font-size: 17px;
