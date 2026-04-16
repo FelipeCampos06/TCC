@@ -7,7 +7,7 @@
         Apache Cordova Team
     </author>
 
-    <icon src="www/img/logo_barbearia.png" />
+    <icon src="www/img/logo.png" />
 
     <content src="index.html" />
     <allow-intent href="http://*/*" />

@@ -117,7 +117,7 @@ body{
 @media (max-width: 480px){
 
     body{
-        background-size: 350px; /* diminui a logo */
+        background-size: 250px; /* diminui a logo */
         background-position: center 100px; /* ajusta posição */
         background-attachment: scroll; /* evita bug no mobile */
     }
@@ -164,7 +164,7 @@ body{
 @media (max-width: 360px){
 
     body{
-        background-size: 350px; /* diminui a logo */
+        background-size: 250px; /* diminui a logo */
         background-position: center 100px; /* ajusta posição */
         background-attachment: scroll; /* evita bug no mobile */
     }
@@ -183,22 +183,22 @@ body{
     }         
 
     .nome{ 
-        top:48%; 
+        top:52%; 
     }
     .email{ 
-        top:55%; 
+        top:59%; 
     }
     .senha{ 
-        top:62%; 
+        top:66%; 
     }
     .confsenha{ 
-        top:69%; 
+        top:73%; 
     }
     .tell{ 
-        top:76%; 
+        top:80%; 
     }
     .cadastro{ 
-        top:84%; 
+        top:89%; 
     }
 
     }

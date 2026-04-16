@@ -92,7 +92,7 @@ body{
 @media (max-width: 768px) {
 
     body{
-        background-size: 350px; /* diminui a logo */
+        background-size: 250px; /* diminui a logo */
         background-position: center 120px; /* ajusta posição */
         background-attachment: scroll; /* evita bug no mobile */
     }
@@ -119,7 +119,7 @@ body{
 @media (max-width: 480px) {
 
     body{
-        background-size: 350px; /* menor ainda */
+        background-size: 250px; /* menor ainda */
         background-position: center 100px;
         background-attachment: scroll;
     }
@@ -135,10 +135,19 @@ body{
         left: 50%;
     }
 
-    .email { top: 53%; }
-    .senha { top: 60%; }
-    .entrar { top: 67%; }
-    .google { top: 74%; }
-    .cadastro { top: 80%; }
-
+    .email { 
+        top: 53%; 
+    }
+    .senha { 
+        top: 61%; 
+    }
+    .entrar { 
+        top: 70%; 
+    }
+    .google { 
+        top: 78%; 
+    }
+    .cadastro { 
+        top: 85%; 
+    }
 }
