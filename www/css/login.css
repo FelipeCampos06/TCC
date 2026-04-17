@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.oculto {
+    display: none;
+}
+
 body{
     background-image:
         url(../img/logo_barbearia.png);
@@ -86,6 +90,10 @@ body{
     color: white;
     font-size: 20px;
     cursor: pointer;
+}
+
+.botao-ok {
+    background-color: green;
 }
 
 /* RESPONSIVIDADE — sem mexer no código original */

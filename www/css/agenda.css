@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.oculto {
+    display: none;
+}
+
 body {
     background-color:#323030 ;
     display: flex;
