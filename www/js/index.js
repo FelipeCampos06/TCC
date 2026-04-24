@@ -14,10 +14,31 @@ function iniciarApp() {
     }
 
     botao.addEventListener("click", () => {
-
-        window.location.href = 'www/html/selecao.html';
-
+        window.location.href = '../html/selecao.html';
     });
+
+    const botaogoogle = document.getElementById("btnGoogle");
+    
+    if (!botaogoogle) {
+        console.log("Botão não encontrado");
+        return;
+    }
+
+    botaogoogle.addEventListener("click", () => {
+        window.location.href = '../html/cadastro.html';
+    });
+
+    const botaocad = document.getElementById("btnCad");
+
+    if (!botaocad) {
+        console.log("Botão não encontrado");
+        return;
+    }
+
+    botaocad.addEventListener("click", () => {
+        window.location.href = '../html/cadastro.html';
+    });
+
 }
 
 // Navegador

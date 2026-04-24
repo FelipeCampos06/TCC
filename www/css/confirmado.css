@@ -1,23 +1,25 @@
-*{
+/* Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .oculto {
     display: none;
 }
 
-
 body {
-    background-color:#323030 ;
+    background-color: #323030;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
     font-family: 'Inter', sans-serif;
+    padding: 20px;
 }
 
+/* Logo */
 body::before {
     content: "";
     width: 180px;
@@ -26,134 +28,146 @@ body::before {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    display: block;
-    margin-top: 30px;
-    margin-bottom: -40px;
+    margin: 20px 0 -20px 0;
 }
 
+/* Botão voltar */
 .voltar img {
     position: absolute;
-    top: 1%;
-    left: 25%;
-    width: 50px;
-    height: 50px;
+    top: 15px;
+    left: 15px;
+    width: 40px;
 }
 
+/* Caixa azul */
 .fundo {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     background-color: #3C82A5;
-    margin: 80px;
-    height: 100px;
-    width: 600px;
+    margin: 40px 0;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
     border-radius: 10px;
 }
 
-
+/* Texto título */
 .texto {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: rgb(21, 255, 0, 100);
-    font-size: 40px;
+    color: rgb(21, 255, 0);
+    font-size: clamp(22px, 5vw, 36px);
 }
 
-.fu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 200px;
-}
-
+/* Botão */
 .conf {
-
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(37, 37, 37, 1);
-    width: 300px;
-    height: 100px;
+    background-color: #252525;
+    width: 100%;
+    max-width: 300px;
+    height: 80px;
     border-radius: 35px;
     border: 2px solid blue;
     cursor: pointer;
     text-decoration: none;
-    margin-top: 200px;
+    margin-top: 80px;
 }
 
-.age {
+/* Texto confirmação */
+.fun {
+    color: white;
+    font-size: clamp(22px, 5vw, 36px);
+    margin-top: 60px;
+}
 
+/* Caixa de confirmação */
+.confirmar {
+    background-color: #35353F;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+    border-radius: 20px;
+    border: 1px solid #3C82A5;
+    color: white;
+    overflow: hidden;
+}
+
+/* Cabeçalho */
+.info-header {
+    background-color: #27A951;
+    padding: 15px;
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: bold;
+}
+
+/* Conteúdo */
+.info-detalhes {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Itens */
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: clamp(14px, 3.5vw, 18px);
+    border-bottom: 1px solid #505059;
+    padding-bottom: 10px;
+}
+
+/* Labels */
+.info-label {
+    color: #B0B0B8;
+}
+
+/* Valores */
+.info-valor {
+    color: #00D4FF;
+    font-weight: 600;
+}
+
+/* Botões */
+.botao-confirmado {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Texto botão */
+.age {
     color: white;
     font-weight: bold;
     text-decoration: none;
 }
 
-@media (max-width: 768px) {
-
-    .voltar img {
-        left: 8%;
-        width: 45px;
-        height: 45px;
+/* =========================
+   TABLET
+========================= */
+@media (min-width: 768px) {
+    body::before {
+        width: 180px;
+        height: 180px;
     }
 
     .fundo {
-        width: 85%;
-        height: auto;
-        padding: 20px;
-        margin: 60px auto;
-    }
-
-    .texto {
-        font-size: 30px;
-        padding: 10px;
-    }
-
-    .fu {
-        margin-top: 120px;
-    }
-
-    .conf {
-        width: 260px;
-        height: 90px;
-        margin-top: 120px;
+        margin-top: 60px;
     }
 }
 
-@media (max-width: 480px) {
-
-    .voltar img {
-        left: 5%;
-        width: 40px;
-        height: 40px;
-    }
-
+/* =========================
+   DESKTOP
+========================= */
+@media (min-width: 1024px) {
     .fundo {
-        margin-top: 100px;
-        height: auto;
-        padding: 20px;
-        width: 85%;
+        max-width: 600px;
     }
 
-    .texto {
-        font-size: 30px;
-        padding: 10px;
-    }
-
-    .fu {
-        margin-top: 80px;
-    }
-
-    .conf {
-        width: 220px;
-        height: 80px;
-        margin-top: 80px;
-    }
-
-    .age {
-        font-size: 16px;
+    .confirmar {
+        max-width: 600px;
     }
 }

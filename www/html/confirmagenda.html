@@ -11,16 +11,8 @@
 <body>
 
     <div class="voltar">
-        <a href="../html/agenda.html">
+        <a href="../html/servicos.html">
             <img src="../img/seta.png"></a>
-    </div>
-
-    <div class="fundo">
-
-        <div class="texto">
-            <h1>Confirmar Agendamento</h1>
-        </div>
-
     </div>
 
     <div class="prg">
@@ -29,13 +21,36 @@
 
     <div class="fun">
         <div class="confirmar">
+            <div class="info-header">
+                <p>Informações do Agendamento</p>
+            </div>
 
-            <div class="conf">
-                <p>Confirmar</p>
+            <div class="info-detalhes">
+                <div class="info-item">
+                    <span class="info-label">Serviço:</span>
+                    <span class="info-valor" id="infoServico">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Valor:</span>
+                    <span class="info-valor" id="infoValor">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Dia:</span>
+                    <span class="info-valor" id="infoDia">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Horário:</span>
+                    <span class="info-valor" id="infoHorario">-</span>
+                </div>
+            </div>
+
+            <div class="conf-separator"></div>
+
+            <div class="info-header">
+                <p>Confirmar Agendamento?</p>
             </div>
 
             <div class="botao">
-
                 <button class="sim" onclick="window.location.href='../html/confirmado.html'">
                     SIM
                 </button>
@@ -43,7 +58,6 @@
                 <button class="nao" onclick="window.location.href='../html/agenda.html'">
                     NÃO
                 </button>
-
             </div>
 
         </div>

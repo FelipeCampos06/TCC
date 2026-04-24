@@ -1,5 +1,14 @@
 let iniciado = false;
 
+function selecionarServico(servico, valor) {
+    // Armazenar o serviço e valor selecionado
+    localStorage.setItem('servico_selecionado', servico);
+    localStorage.setItem('valor_servico', valor);
+    
+    // Redirecionar para a página de agenda
+    window.location.href = '../html/agenda.html';
+}
+
 function iniciarApp() {
     if (iniciado) return;
     iniciado = true;

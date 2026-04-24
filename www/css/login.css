@@ -73,14 +73,16 @@ body{
     left: 50.5%;     
     transform: translateX(-50%);
     cursor: pointer;
+    background: transparent;
+    
 }
 
-.cadastro{
+
+.cad{
     position: absolute;
     top: 81%;         /* ↓↓ desci o botão ↓↓ */
     left: 50.5%;        
     transform: translateX(-50%);  /* CENTRALIZA certinho */
-    
     width: 300px;
     height: 50px;
     background-color: #3C82A5;
@@ -109,7 +111,7 @@ body{
     .email,
     .senha,
     .entrar,
-    .cadastro {
+    .cad {
         width: 85%;
         max-width: 300px;
         height: 45px;
@@ -117,11 +119,16 @@ body{
         left: 50%;
     }
 
+    .google{
+        background: transparent; 
+    }
+
     .email { top: 55%; }
     .senha { top: 62%; }
     .entrar { top: 69%; }
     .google { top: 76%; }
-    .cadastro { top: 82%; }
+    
+    .cad { top: 82%; }
 
 }
 
@@ -136,13 +143,18 @@ body{
     .email,
     .senha,
     .entrar,
-    .cadastro {
+    .cad {
         width: 85%;
         max-width: 300px;
         height: 45px;
         font-size: 17px;
         left: 50%;
     }
+
+    .google{
+        background: transparent; 
+    }
+
 
     .email { 
         top: 53%; 
@@ -156,7 +168,7 @@ body{
     .google { 
         top: 78%; 
     }
-    .cadastro { 
+    .cad { 
         top: 85%; 
     }
 }

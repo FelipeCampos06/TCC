@@ -1,5 +1,25 @@
 let iniciado = false;
 
+function selecionarDia(dia, pagina) {
+    // Armazenar o dia selecionado
+    localStorage.setItem('dia_selecionado', dia);
+    
+    // Redirecionar para a página do dia
+    window.location.href = pagina;
+}
+
+function exibirServicoSelecionado() {
+    const servico = localStorage.getItem('servico_selecionado');
+    const valor = localStorage.getItem('valor_servico');
+    
+    if (servico && valor) {
+        const elemento = document.getElementById('servicoSelecionado');
+        if (elemento) {
+            elemento.textContent = `Serviço: ${servico} - ${valor}`;
+        }
+    }
+}
+
 function iniciarApp() {
     if (iniciado) return;
     iniciado = true;
@@ -13,8 +33,9 @@ function iniciarApp() {
     }
 
     console.log("App iniciado");
-
-    // 👉 Seu código aqui
+    
+    // Exibir serviço selecionado
+    exibirServicoSelecionado();
 }
 
 // Navegador
