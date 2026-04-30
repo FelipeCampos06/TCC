@@ -8,7 +8,7 @@ git config --global user.name "FelipeCampos06"
 
 git config --global user.email "felipe.belinati@gmail.com"
 
-cd paste do arquivo
+cd desktop
 
 git clone https://github.com/FelipeCampos06/TCC.git
 
