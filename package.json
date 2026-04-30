@@ -5,13 +5,7 @@
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "serve www/js"
-=======
     "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> 10e7b10 (29/04)
   },
   "keywords": [
     "ecosystem:cordova"
@@ -24,11 +18,6 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "cordova-android": "^15.0.0",
-    "serve": "^14.2.6"
-=======
     "cordova-android": "^15.0.0"
->>>>>>> 10e7b10 (29/04)
   }
 }
