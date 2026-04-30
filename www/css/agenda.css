@@ -65,6 +65,40 @@ body::before {
     justify-content: center;
     align-items: center;
     width: 40vh;
+<<<<<<< HEAD
+=======
+    gap: 12px;
+}
+
+.dia-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.horarios-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 10px auto 0;
+    min-height: 32px;
+    color: #FFF;
+    text-align: left;
+}
+
+.horarios-preview span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    background-color: #3C82A5;
+    border-radius: 18px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.horarios-preview .sem-horarios {
+    opacity: 0.85;
+>>>>>>> 10e7b10 (29/04)
 }
  
 /* ===== BOTÕES ===== */
@@ -109,6 +143,13 @@ body::before {
         height: 45px;
         max-width: 85%; /* Ocupa quase a largura total da tela */
     }
+<<<<<<< HEAD
+=======
+
+    .horarios-preview {
+        grid-template-columns: 1fr;
+    }
+>>>>>>> 10e7b10 (29/04)
 }
  
 @media (max-width: 480px) {
@@ -126,4 +167,12 @@ body::before {
         font-size: 16px;
         height: 40px;
     }
+<<<<<<< HEAD
+=======
+
+    .horarios-preview {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        grid-template-rows: repeat(auto-fit, auto);
+    }
+>>>>>>> 10e7b10 (29/04)
 }

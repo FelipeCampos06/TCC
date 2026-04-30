@@ -39,9 +39,104 @@ body::before {
     width: 100vh;
     max-width: 400px;
     text-align: center;
+<<<<<<< HEAD
 }
  
  
+=======
+    margin-top: 10%;
+}
+ 
+.availability-section {
+    background: rgba(255, 255, 255, 0.08);
+    width: 100%;
+    max-width: 360px;
+    padding: 16px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.availability-section h3 {
+    color: white;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.availability-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.availability-form select,
+.availability-form input {
+    flex: 1 1 120px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+}
+
+.availability-form button {
+    background-color: #3C82A5;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+.availability-day {
+    margin-bottom: 12px;
+}
+
+.availability-day h4 {
+    margin-bottom: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+.time-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.time-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border-radius: 14px;
+    background-color: #FFFFFF;
+    color: #333333;
+    font-size: 13px;
+}
+
+.remove-time {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.nenhum-horario {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+>>>>>>> 10e7b10 (29/04)
 /* TÍTULO COM FAIXA AZUL */
 .titulo {
     background-color: #3C82A5;
@@ -55,12 +150,15 @@ body::before {
     border-radius: 10px;
 }
  
+<<<<<<< HEAD
 /* OPÇÕES (AGENDAR / CANCELAR) */
 .opcoes {
     margin-top: 100px;
  
 }
  
+=======
+>>>>>>> 10e7b10 (29/04)
 /* CONTAINER DOS CARDS */
 .cards-container {
     display: flex;
@@ -137,6 +235,7 @@ body::before {
  
 }
  
+<<<<<<< HEAD
  
 /* RESPONSIVO */
 
@@ -182,11 +281,56 @@ body::before {
 
     .card p{
         font-size: 12px;
+=======
+/* OPÇÕES (AGENDAR / CANCELAR) */
+.opcoes {
+    margin-bottom: 100px;
+ 
+}
+ 
+
+/* RESPONSIVIDADE EXTRA */
+
+@media (max-width: 768px) {
+
+    .availability-section {
+        width: 80%;
+        padding: 14px;
+    }
+
+    .availability-form select,
+    .availability-form input {
+        width: 100px;
+        font-size: 13px;
+    }
+
+    .availability-form button {
+        font-size: 13px;
+    }
+
+    .availability-form select,
+    .availability-form input,
+    .availability-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .cards-container {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    .card {
+        width: 45%;
+        min-width: 130px;
+>>>>>>> 10e7b10 (29/04)
     }
 }
 
 @media (max-width: 480px) {
 
+<<<<<<< HEAD
     body::before{
         width: 120px;
         height: 120px;
@@ -222,5 +366,34 @@ body::before {
 
     .card p{
         font-size: 11px;
+=======
+    body {
+        padding: 10px;
+    }
+
+    .titulo {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .availability-section {
+        width: 80%;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        min-height: 130px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .time-list {
+        justify-content: center;
+>>>>>>> 10e7b10 (29/04)
     }
 }

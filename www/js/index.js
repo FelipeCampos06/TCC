@@ -14,6 +14,7 @@ function iniciarApp() {
     }
 
     botao.addEventListener("click", () => {
+<<<<<<< HEAD
         window.location.href = '../html/selecao.html';
     });
 
@@ -39,6 +40,19 @@ function iniciarApp() {
         window.location.href = '../html/cadastro.html';
     });
 
+=======
+        const email = document.querySelector(".email").value;
+        const senha = document.querySelector(".senha").value;
+
+        if (email === "admin" && senha === "admin") {
+            localStorage.setItem('tipo_usuario', 'barbeiro');
+            window.location.href = 'www/html/barbeiro.html';
+        } else {
+            localStorage.setItem('tipo_usuario', 'cliente');
+            window.location.href = 'www/html/selecao.html';
+        }
+    });
+>>>>>>> 10e7b10 (29/04)
 }
 
 // Navegador

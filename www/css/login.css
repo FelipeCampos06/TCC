@@ -66,6 +66,7 @@ body{
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 .google{
 
     position: absolute;
@@ -83,6 +84,15 @@ body{
     top: 81%;         /* ↓↓ desci o botão ↓↓ */
     left: 50.5%;        
     transform: translateX(-50%);  /* CENTRALIZA certinho */
+=======
+
+.cadastro{
+    position: absolute;
+    top: 77%;         /* ↓↓ desci o botão ↓↓ */
+    left: 50.5%;        
+    transform: translateX(-50%);  /* CENTRALIZA certinho */
+    
+>>>>>>> 10e7b10 (29/04)
     width: 300px;
     height: 50px;
     background-color: #3C82A5;
@@ -111,7 +121,11 @@ body{
     .email,
     .senha,
     .entrar,
+<<<<<<< HEAD
     .cad {
+=======
+    .cadastro {
+>>>>>>> 10e7b10 (29/04)
         width: 85%;
         max-width: 300px;
         height: 45px;
@@ -119,6 +133,7 @@ body{
         left: 50%;
     }
 
+<<<<<<< HEAD
     .google{
         background: transparent; 
     }
@@ -129,6 +144,12 @@ body{
     .google { top: 76%; }
     
     .cad { top: 82%; }
+=======
+    .email { top: 55%; }
+    .senha { top: 62%; }
+    .entrar { top: 69%; }
+    .cadastro { top: 76%; }
+>>>>>>> 10e7b10 (29/04)
 
 }
 
@@ -143,7 +164,11 @@ body{
     .email,
     .senha,
     .entrar,
+<<<<<<< HEAD
     .cad {
+=======
+    .cadastro {
+>>>>>>> 10e7b10 (29/04)
         width: 85%;
         max-width: 300px;
         height: 45px;
@@ -151,11 +176,14 @@ body{
         left: 50%;
     }
 
+<<<<<<< HEAD
     .google{
         background: transparent; 
     }
 
 
+=======
+>>>>>>> 10e7b10 (29/04)
     .email { 
         top: 53%; 
     }
@@ -165,10 +193,15 @@ body{
     .entrar { 
         top: 70%; 
     }
+<<<<<<< HEAD
     .google { 
         top: 78%; 
     }
     .cad { 
         top: 85%; 
+=======
+    .cadastro { 
+        top: 76%; 
+>>>>>>> 10e7b10 (29/04)
     }
 }

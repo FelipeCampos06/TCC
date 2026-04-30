@@ -4,7 +4,11 @@ function iniciarApp() {
     if (iniciado) return;
     iniciado = true;
 
+<<<<<<< HEAD
     // Parte do Cordova (mantida)
+=======
+    // Parte do Cordova (só roda quando existir cordova)
+>>>>>>> 10e7b10 (29/04)
     if (window.cordova) {
         console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
 
@@ -14,6 +18,7 @@ function iniciarApp() {
 
     console.log("App iniciado");
 
+<<<<<<< HEAD
     // =========================
     // 👉 SEU CÓDIGO ADICIONADO
     // =========================
@@ -46,6 +51,9 @@ function iniciarApp() {
         console.log("Ir para perfil");
         window.location.href = "perfil.html";
     });
+=======
+    // 👉 Seu código aqui
+>>>>>>> 10e7b10 (29/04)
 }
 
 // Navegador

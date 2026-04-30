@@ -106,12 +106,20 @@ body::before {
 /* Mantendo suas classes exatamente como estavam */
 .hora {
     display: flex;
+<<<<<<< HEAD
     flex-direction: row;
+=======
+    flex-direction: column;
+>>>>>>> 10e7b10 (29/04)
     justify-content: center;
     width: 80px;
     height: 45px;
 }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 10e7b10 (29/04)
 .horat {
     display: flex;
     flex-direction: row;
@@ -119,7 +127,11 @@ body::before {
     width: 80px;
     height: 45px;
 }
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 10e7b10 (29/04)
 .hora button,
 .horat button {
     width: 100%;

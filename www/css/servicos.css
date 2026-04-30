@@ -63,7 +63,11 @@ body::before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
     width: 40vh;
+=======
+    width: 30vh;
+>>>>>>> 10e7b10 (29/04)
 }
 
 /* ============================================

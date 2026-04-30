@@ -1,5 +1,13 @@
 let iniciado = false;
 
+<<<<<<< HEAD
+=======
+function selecionarHorario(horario) {
+    localStorage.setItem('horario_selecionado', horario);
+    window.location.href = '../html/confirmagenda.html';
+}
+
+>>>>>>> 10e7b10 (29/04)
 function iniciarApp() {
     if (iniciado) return;
     iniciado = true;
