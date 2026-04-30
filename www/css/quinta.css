@@ -92,12 +92,9 @@ body::before {
 /* HORÁRIOS */
 /* HORÁRIOS */
 /* HORÁRIOS */
-<<<<<<< HEAD
-=======
 /* HORÁRIOS */
 /* HORÁRIOS */
 /* HORÁRIOS */
->>>>>>> 10e7b10 (29/04)
 .dia {
     display: flex;
     justify-content: center;
@@ -117,11 +114,6 @@ body::before {
     width: 80px;
     height: 45px;
 }
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> 10e7b10 (29/04)
 .horat {
     display: flex;
     flex-direction: row;
@@ -129,10 +121,6 @@ body::before {
     width: 80px;
     height: 45px;
 }
-<<<<<<< HEAD
- 
-=======
->>>>>>> 10e7b10 (29/04)
 .hora button,
 .horat button {
     width: 100%;

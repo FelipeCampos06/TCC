@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-let iniciado = false;
-
-=======
 const DIAS = ['Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 let iniciado = false;
 
@@ -103,7 +99,6 @@ function removeHorario(dia, horario) {
     renderHorariosDisponiveis();
 }
 
->>>>>>> 10e7b10 (29/04)
 function iniciarApp() {
     if (iniciado) return;
     iniciado = true;
@@ -116,11 +111,6 @@ function iniciarApp() {
         if (el) el.classList.add('ready');
     }
 
-<<<<<<< HEAD
-    console.log("App iniciado");
-
-    // 👉 Seu código aqui
-=======
     console.log('App iniciado');
     renderHorariosDisponiveis();
 
@@ -128,7 +118,6 @@ function iniciarApp() {
     if (addButton) {
         addButton.addEventListener('click', adicionarHorario);
     }
->>>>>>> 10e7b10 (29/04)
 }
 
 // Navegador

@@ -1,7 +1,5 @@
 let iniciado = false;
 
-<<<<<<< HEAD
-=======
 function exibirDetalhesAgendamento() {
     const agendamento = localStorage.getItem('ultimo_agendamento');
 
@@ -29,7 +27,6 @@ function exibirDetalhesAgendamento() {
     }
 }
 
->>>>>>> 10e7b10 (29/04)
 function iniciarApp() {
     if (iniciado) return;
     iniciado = true;
@@ -44,11 +41,7 @@ function iniciarApp() {
 
     console.log("App iniciado");
 
-<<<<<<< HEAD
-    // 👉 Seu código aqui
-=======
     exibirDetalhesAgendamento();
->>>>>>> 10e7b10 (29/04)
 }
 
 // Navegador

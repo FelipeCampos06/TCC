@@ -39,11 +39,6 @@ body::before {
     width: 100vh;
     max-width: 400px;
     text-align: center;
-<<<<<<< HEAD
-}
- 
- 
-=======
     margin-top: 10%;
 }
  
@@ -136,7 +131,6 @@ body::before {
     font-size: 13px;
 }
 
->>>>>>> 10e7b10 (29/04)
 /* TÍTULO COM FAIXA AZUL */
 .titulo {
     background-color: #3C82A5;
@@ -150,15 +144,6 @@ body::before {
     border-radius: 10px;
 }
  
-<<<<<<< HEAD
-/* OPÇÕES (AGENDAR / CANCELAR) */
-.opcoes {
-    margin-top: 100px;
- 
-}
- 
-=======
->>>>>>> 10e7b10 (29/04)
 /* CONTAINER DOS CARDS */
 .cards-container {
     display: flex;
@@ -235,53 +220,6 @@ body::before {
  
 }
  
-<<<<<<< HEAD
- 
-/* RESPONSIVO */
-
-@media (max-width: 768px) {
-
-    body::before{
-        width: 150px;
-        height: 150px;
-        margin-bottom: -30px;
-    }
-
-    .container{
-        width: 90%;
-    }
-
-    .titulo {
-        font-size: 16px;
-        padding: 12px;
-        margin: 40px 0;
-    }
-
-    .opcoes{
-        margin-top: 60px;
-    }
-
-    .cards-container{
-        max-width: 100%;
-        gap: 12px;
-    }
-
-    .card{
-        width: 140px;
-        height: 140px;
-    }
-
-    .card h3{
-        font-size: 15px;
-    }
-
-    .card .hora-card{
-        font-size: 17px;
-    }
-
-    .card p{
-        font-size: 12px;
-=======
 /* OPÇÕES (AGENDAR / CANCELAR) */
 .opcoes {
     margin-bottom: 100px;
@@ -324,49 +262,11 @@ body::before {
     .card {
         width: 45%;
         min-width: 130px;
->>>>>>> 10e7b10 (29/04)
     }
 }
 
 @media (max-width: 480px) {
 
-<<<<<<< HEAD
-    body::before{
-        width: 120px;
-        height: 120px;
-        margin-bottom: -20px;
-    }
-
-    .container{
-        width: 95%;
-    }
-
-    .titulo{
-        font-size: 14px;
-        margin: 30px 0;
-    }
-
-    .cards-container{
-        gap: 10px;
-    }
-
-    .card{
-        width: 130px;
-        height: 130px;
-        padding: 10px;
-    }
-
-    .card h3{
-        font-size: 14px;
-    }
-
-    .card .hora-card{
-        font-size: 16px;
-    }
-
-    .card p{
-        font-size: 11px;
-=======
     body {
         padding: 10px;
     }
@@ -394,6 +294,5 @@ body::before {
 
     .time-list {
         justify-content: center;
->>>>>>> 10e7b10 (29/04)
     }
 }

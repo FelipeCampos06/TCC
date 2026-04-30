@@ -14,33 +14,6 @@ function iniciarApp() {
     }
 
     botao.addEventListener("click", () => {
-<<<<<<< HEAD
-        window.location.href = '../html/selecao.html';
-    });
-
-    const botaogoogle = document.getElementById("btnGoogle");
-    
-    if (!botaogoogle) {
-        console.log("Botão não encontrado");
-        return;
-    }
-
-    botaogoogle.addEventListener("click", () => {
-        window.location.href = '../html/cadastro.html';
-    });
-
-    const botaocad = document.getElementById("btnCad");
-
-    if (!botaocad) {
-        console.log("Botão não encontrado");
-        return;
-    }
-
-    botaocad.addEventListener("click", () => {
-        window.location.href = '../html/cadastro.html';
-    });
-
-=======
         const email = document.querySelector(".email").value;
         const senha = document.querySelector(".senha").value;
 
@@ -52,7 +25,6 @@ function iniciarApp() {
             window.location.href = 'www/html/selecao.html';
         }
     });
->>>>>>> 10e7b10 (29/04)
 }
 
 // Navegador

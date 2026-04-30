@@ -1,7 +1,5 @@
 let iniciado = false;
 
-<<<<<<< HEAD
-=======
 function voltarAnterior() {
     // Voltar para a página do dia selecionado
     const dia = localStorage.getItem('dia_selecionado');
@@ -70,7 +68,6 @@ function cancelarAgendamento() {
     window.location.href = '../html/cancelado.html';
 }
 
->>>>>>> 10e7b10 (29/04)
 function iniciarApp() {
     if (iniciado) return;
     iniciado = true;
@@ -83,41 +80,10 @@ function iniciarApp() {
         if (el) el.classList.add('ready');
     }
 
-<<<<<<< HEAD
-    console.log("App iniciado");
-
-    // =========================
-    // 👉 SEU CÓDIGO AQUI
-    // =========================
-
-    // Botão cancelar
-    const btnCancelar = document.getElementById("btnCancelar");
-
-    if (btnCancelar) {
-        btnCancelar.addEventListener("click", () => {
-            console.log("Ir para cancelamento");
-            window.location.href = "cancelamento.html";
-        });
-    } else {
-        console.log("Botão cancelar não encontrado");
-    }
-
-    // Botão voltar (seta)
-    const btnVoltar = document.querySelector(".voltar a");
-
-    if (btnVoltar) {
-        btnVoltar.addEventListener("click", (e) => {
-            e.preventDefault();
-            console.log("Voltando para seleção");
-            window.location.href = "../html/selecao.html";
-        });
-    }
-=======
     console.log("App iniciado - Página de Confirmação");
     
     // Exibir as informações do agendamento
     exibirInformacoesAgendamento();
->>>>>>> 10e7b10 (29/04)
 }
 
 // Navegador
