@@ -29,8 +29,6 @@ function renderHorariosDisponiveisPage(dia) {
 
     if (horarios.length === 0) {
         const empty = document.createElement('p');
-        empty.textContent = 'Nenhum horário disponível para este dia.';
-        empty.className = 'nenhum-horario';
         container.appendChild(empty);
         return;
     }
