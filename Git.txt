@@ -2,6 +2,32 @@ install npm
 
 para rodar utilize npm run dev
 
+Para git exixstente
+
+git config --global user.name "FelipeCampos06"
+
+git config --global user.email "felipe.belinati@gmail.com"
+
+cd desktop
+
+git clone https://github.com/FelipeCampos06/TCC.git
+
+git checkout felipe 
+
+(para checkout novos use git checkout -b felipe)
+
+git add .
+
+git commit -m "data ou titulo do commit"
+
+git branch -M master
+
+git push -u origin master
+
+
+para novos repositórios
+
+
 git config --global user.name "FelipeCampos06"
 
 git config --global user.email "felipe.belinati@gmail.com"
@@ -20,6 +46,8 @@ git branch -M master
 
 git push -u origin master
 
+
+
 Caso dê erro use :
 
 git remote remove origin https://github.com/FelipeCampos06/TCC.git
@@ -27,3 +55,6 @@ git remote remove origin https://github.com/FelipeCampos06/TCC.git
 
 git pull origin master --rebase 
 (dê o push em seguida) 
+
+
+
