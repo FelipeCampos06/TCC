@@ -52,7 +52,7 @@ function exibirInformacoesAgendamento() {
 }
 
 function cancelarAgendamento() {
-    // Armazenar o agendamento confirmado
+    // Armazenar o agendamento cancelado
     const agendamento = {
         servico: localStorage.getItem('servico_selecionado'),
         valor: localStorage.getItem('valor_servico'),
@@ -63,8 +63,14 @@ function cancelarAgendamento() {
     
     // Armazenar em localStorage para recuperar depois
     localStorage.setItem('ultimo_agendamento', JSON.stringify(agendamento));
+
+    // Limpar dados do agendamento atual
+    localStorage.removeItem('servico_selecionado');
+    localStorage.removeItem('valor_servico');
+    localStorage.removeItem('dia_selecionado');
+    localStorage.removeItem('horario_selecionado');
     
-    // Redirecionar para a página de confirmação
+    // Redirecionar para a página de confirmação do cancelamento
     window.location.href = '../html/cancelado.html';
 }
 
