@@ -55,6 +55,3 @@ git remote remove origin https://github.com/FelipeCampos06/TCC.git
 
 git pull origin master --rebase 
 (dê o push em seguida) 
-
-
-
