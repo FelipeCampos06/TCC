@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste Horários</title>
+</head>
+<body>
+    <h1>Teste de Horários Disponíveis</h1>
+    <div id="horariosDisponiveisContainer"></div>
+
+    <script>
+        // Simular dados de teste
+        const DIAS_DISPONIVEIS = ['Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+
+        function getHorariosDisponiveisStorage() {
+            const raw = localStorage.getItem('horarios_disponiveis');
+            if (!raw) {
+                return Object.fromEntries(DIAS_DISPONIVEIS.map((dia) => [dia, []]));
+            }
+            try {
+                const dados = JSON.parse(raw);
+                return Object.fromEntries(
+                    DIAS_DISPONIVEIS.map((dia) => [dia, dados[dia] ? [...new Set(dados[dia])] : []])
+                );
+            } catch (err) {
+                console.error('Erro ao ler horários disponíveis:', err);
+                return Object.fromEntries(DIAS_DISPONIVEIS.map((dia) => [dia, []]));
+            }
+        }
+
+        function renderHorariosDisponiveisPage(dia) {
+            console.log('Teste: Renderizando horários para dia:', dia);
+
+            const container = document.getElementById('horariosDisponiveisContainer');
+            if (!container) {
+                console.error('Container de horários não encontrado');
+                return;
+            }
+
+            const dados = getHorariosDisponiveisStorage();
+            console.log('Teste: Dados do localStorage:', dados);
+
+            const horarios = dados[dia] || [];
+            console.log('Teste: Horários para', dia, ':', horarios);
+
+            container.innerHTML = '';
+
+            if (horarios.length === 0) {
+                const empty = document.createElement('p');
+                empty.textContent = 'Nenhum horário disponível para este dia.';
+                empty.className = 'nenhum-horario';
+                container.appendChild(empty);
+                console.log('Teste: Nenhum horário encontrado');
+                return;
+            }
+
+            const list = document.createElement('div');
+            list.className = 'time-list';
+
+            horarios.forEach((horario) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'hora';
+
+                const button = document.createElement('button');
+                button.textContent = horario;
+                button.type = 'button';
+
+                wrapper.appendChild(button);
+                list.appendChild(wrapper);
+            });
+
+            container.appendChild(list);
+            console.log('Teste: Horários renderizados');
+        }
+
+        // Adicionar dados de teste
+        const dadosTeste = {
+            'Terça': ['09:00', '10:00', '11:00'],
+            'Quarta': ['14:00', '15:00'],
+            'Quinta': [],
+            'Sexta': ['16:00', '17:00', '18:00'],
+            'Sábado': ['10:00']
+        };
+        localStorage.setItem('horarios_disponiveis', JSON.stringify(dadosTeste));
+
+        // Testar renderização
+        renderHorariosDisponiveisPage('Terça');
+    </script>
+</body>
+</html>

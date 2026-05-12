@@ -37,25 +37,27 @@
         </div>
 
         <div class="dia-card">
-            <button class="dias" onclick="selecionarDia('Quinta', '../html/quinta.html')">
+            <button class="dias" type="button" onclick="redirectToDayPage('Quinta')">
                 QUINTA - FEIRA
             </button>
         </div>
 
         <div class="dia-card">
-            <button class="dias" onclick="selecionarDia('Sexta', '../html/sexta.html')">
+            <button class="dias" type="button" onclick="redirectToDayPage('Sexta')">
                 SEXTA - FEIRA
             </button>
         </div>
 
         <div class="dia-card">
-            <button class="dias" onclick="selecionarDia('Sábado', '../html/sabado.html')">
+            <button class="dias" type="button" onclick="redirectToDayPage('Sábado')">
                 SÁBADO
             </button>
         </div>
 
     </div>
 
+    <script src="../js/dias-utils.js"></script>
+    <script src="../js/horarios-utils.js"></script>
     <script src="../js/agenda.js"></script>
 
 </body>

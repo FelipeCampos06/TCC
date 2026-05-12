@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia</title>
+    <link rel="stylesheet" href="../css/dia.css">
+</head>
+
+<body>
+
+    <div class="voltar">
+        <a id="voltarLink" href="../html/agenda.html">
+            <img src="../img/seta.png" alt="Voltar">
+        </a>
+    </div>
+
+    <div class="fundo">
+        <div class="texto">
+            <h1 id="diaTitulo">Dia</h1>
+        </div>
+    </div>
+
+    <div class="fun">
+        <div class="text">
+            <h1>HORÁRIOS DISPONÍVEIS</h1>
+        </div>
+    </div>
+
+    <div id="horariosDisponiveisContainer" class="dia"></div>
+
+    <script src="../js/dias-utils.js"></script>
+    <script src="../js/horarios-utils.js"></script>
+    <script src="../js/dia.js"></script>
+    <script src="../js/user-access.js"></script>
+    <script src="../js/horariosDisponiveis.js"></script>
+
+    <script>
+        // Garantir que tudo seja inicializado corretamente
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página dia.html carregada');
+            if (typeof iniciarHorariosDisponiveisPage === 'function') {
+                iniciarHorariosDisponiveisPage();
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,15 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-.oculto {
-    display: none;
-}
-
-
 body {
-    background-color:#323030 ;
+    background-color: #323030;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -30,7 +25,7 @@ body::before {
     margin-top: 30px;
     margin-bottom: -40px;
 }
- 
+
 .voltar img {
     position: absolute;
     top: 1%;
@@ -38,9 +33,9 @@ body::before {
     width: 50px;
     height: 50px;
 }
- 
-/* FAIXA (TERÇA-FEIRA) */
-.fundo {
+
+.fundo,
+.fun {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,68 +44,41 @@ body::before {
     color: white;
     margin: 80px;
     padding: 10px;
+    border-radius: 10px;
+}
+
+.fundo {
     gap: 50px;
     height: 20px;
     width: 200px;
-    border-radius: 10px;
 }
- .fun {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #3C82A5;
-    color: white;
+
+.fun {
     margin-top: -50px;
     margin-bottom: 20px;
-    padding: 10px;
-    height: auto;
     width: 400px;
-    border-radius: 10px;
 }
- 
+
 .text {
- font-size: 10px;
+    font-size: 10px;
 }
- 
- 
-/* TEXTO TERÇA */
+
 .texto h1 {
     padding: 10px 20px;
     font-size: 18px;
 }
- 
-/* SUBTITULO */
-.almoco h1 {
-    background-color: #4a88a8;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 16px;
-    margin: 20px 0;
-}
- 
-/* HORÁRIOS */
-/* HORÁRIOS */
-/* HORÁRIOS */
+
 .dia {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
     padding: 10px;
-    /* Ajuste de largura para caber exatamente dois botões por linha */
     max-width: 200px;
-    margin: 0 auto; /* Centraliza o bloco inteiro na tela */
-}  
- 
-/* Mantendo suas classes exatamente como estavam */
-.hora {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 80px;
-    height: 45px;
+    margin: 0 auto;
 }
+
+.hora,
 .horat {
     display: flex;
     flex-direction: row;
@@ -118,6 +86,7 @@ body::before {
     width: 80px;
     height: 45px;
 }
+
 .hora button,
 .horat button {
     width: 100%;
@@ -129,11 +98,14 @@ body::before {
     font-weight: bold;
     cursor: pointer;
 }
- 
-/* RESPONSIVO */
+
+.nenhum-horario {
+    color: white;
+    font-size: 14px;
+    padding: 20px;
+}
 
 @media (max-width: 768px) {
-
     .voltar img {
         left: 5%;
         width: 40px;
@@ -144,7 +116,7 @@ body::before {
         width: 180px;
         height: 180px;
     }
-    
+
     .fundo {
         width: 180px;
         margin: 60px auto;
@@ -158,10 +130,6 @@ body::before {
 
     .texto h1 {
         font-size: 16px;
-    }
-
-    .almoco h1 {
-        font-size: 14px;
     }
 
     .dia {
@@ -182,12 +150,6 @@ body::before {
 }
 
 @media (max-width: 480px) {
-
-    body::before {
-        width: 180px;
-        height: 180px;
-    }
-
     .fundo {
         width: 160px;
     }
@@ -199,10 +161,6 @@ body::before {
 
     .texto h1 {
         font-size: 14px;
-    }
-
-    .almoco h1 {
-        font-size: 13px;
     }
 
     .dia {

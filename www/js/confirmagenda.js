@@ -3,17 +3,9 @@ let iniciado = false;
 function voltarAnterior() {
     // Voltar para a página do dia selecionado
     const dia = localStorage.getItem('dia_selecionado');
-    
-    if (dia && dia.includes('Terça')) {
-        window.location.href = '../html/terca.html';
-    } else if (dia && dia.includes('Quarta')) {
-        window.location.href = '../html/quarta.html';
-    } else if (dia && dia.includes('Quinta')) {
-        window.location.href = '../html/quinta.html';
-    } else if (dia && dia.includes('Sexta')) {
-        window.location.href = '../html/sexta.html';
-    } else if (dia && dia.includes('Sábado')) {
-        window.location.href = '../html/sabado.html';
+
+    if (dia && DIAS.includes(dia)) {
+        window.location.href = getBackPageUrl(dia);
     } else {
         window.location.href = '../html/agenda.html';
     }

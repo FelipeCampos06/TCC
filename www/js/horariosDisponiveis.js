@@ -1,22 +1,15 @@
 const DIAS_DISPONIVEIS = ['Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 
 function getHorariosDisponiveisStorage() {
-    const raw = localStorage.getItem('horarios_disponiveis');
-    if (!raw) {
-        return Object.fromEntries(DIAS_DISPONIVEIS.map((dia) => [dia, []]));
-    }
-    try {
-        const dados = JSON.parse(raw);
-        return Object.fromEntries(
-            DIAS_DISPONIVEIS.map((dia) => [dia, dados[dia] ? [...new Set(dados[dia])] : []])
-        );
-    } catch (err) {
-        console.error('Erro ao ler horários disponíveis:', err);
-        return Object.fromEntries(DIAS_DISPONIVEIS.map((dia) => [dia, []]));
-    }
+    const dados = ensureHorariosDisponiveisStorage();
+    return Object.fromEntries(
+        DIAS_DISPONIVEIS.map((dia) => [dia, dados[dia] ? [...new Set(dados[dia])] : []])
+    );
 }
 
 function renderHorariosDisponiveisPage(dia) {
+    console.log('Iniciando renderização de horários para dia:', dia);
+
     const container = document.getElementById('horariosDisponiveisContainer');
     if (!container) {
         console.error('Container de horários não encontrado');
@@ -24,7 +17,11 @@ function renderHorariosDisponiveisPage(dia) {
     }
 
     const dados = getHorariosDisponiveisStorage();
+    console.log('Dados do localStorage:', dados);
+
     const horarios = dados[dia] || [];
+    console.log('Horários para', dia, ':', horarios);
+
     container.innerHTML = '';
 
     if (horarios.length === 0) {
@@ -32,6 +29,7 @@ function renderHorariosDisponiveisPage(dia) {
         empty.textContent = 'Nenhum horário disponível para este dia.';
         empty.className = 'nenhum-horario';
         container.appendChild(empty);
+        console.log('Nenhum horário encontrado, mostrando mensagem vazia');
         return;
     }
 
@@ -52,6 +50,7 @@ function renderHorariosDisponiveisPage(dia) {
     });
 
     container.appendChild(list);
+    console.log('Horários renderizados com sucesso');
 }
 
 function selecionarHorario(horario) {
@@ -61,12 +60,20 @@ function selecionarHorario(horario) {
 }
 
 function iniciarHorariosDisponiveisPage() {
-    if (typeof DIA_ATUAL === 'undefined' || !DIA_ATUAL) {
-        console.error('DIA_ATUAL não definido na página');
+    if (typeof getSelectedDia !== 'function') {
+        console.error('Função getSelectedDia não encontrada. Verifique se dias-utils.js foi carregado.');
         return;
     }
 
-    renderHorariosDisponiveisPage(DIA_ATUAL);
+    const dia = getSelectedDia();
+    if (!dia || !DIAS_DISPONIVEIS.includes(dia)) {
+        console.error('Dia não válido ou não encontrado:', dia);
+        return;
+    }
+
+    console.log('Renderizando horários para:', dia);
+    renderHorariosDisponiveisPage(dia);
 }
 
-document.addEventListener('DOMContentLoaded', iniciarHorariosDisponiveisPage);
+// Removido o event listener automático para evitar conflitos
+// document.addEventListener('DOMContentLoaded', iniciarHorariosDisponiveisPage);

@@ -2,17 +2,8 @@ const DIAS = ['Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 let iniciado = false;
 
 function getHorariosDisponiveis() {
-    const raw = localStorage.getItem('horarios_disponiveis');
-    if (!raw) {
-        return Object.fromEntries(DIAS.map((dia) => [dia, []]));
-    }
-    try {
-        const dados = JSON.parse(raw);
-        return Object.fromEntries(DIAS.map((dia) => [dia, dados[dia] ? [...new Set(dados[dia])] : []]));
-    } catch (err) {
-        console.error('Erro ao ler horários disponíveis:', err);
-        return Object.fromEntries(DIAS.map((dia) => [dia, []]));
-    }
+    const dados = ensureHorariosDisponiveisStorage();
+    return Object.fromEntries(DIAS.map((dia) => [dia, dados[dia] ? [...new Set(dados[dia])] : []]));
 }
 
 function saveHorariosDisponiveis(dados) {
