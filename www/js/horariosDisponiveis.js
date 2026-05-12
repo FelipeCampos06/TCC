@@ -29,8 +29,6 @@ function renderHorariosDisponiveisPage(dia) {
 
     if (horarios.length === 0) {
         const empty = document.createElement('p');
-        empty.textContent = 'Nenhum horário disponível para este dia.';
-        empty.className = 'nenhum-horario';
         container.appendChild(empty);
         return;
     }
@@ -57,6 +55,9 @@ function renderHorariosDisponiveisPage(dia) {
 function selecionarHorario(horario) {
     if (!horario) return;
     localStorage.setItem('horario_selecionado', horario);
+    if (typeof DIA_ATUAL !== 'undefined') {
+        localStorage.setItem('dia_selecionado', DIA_ATUAL);
+    }
     window.location.href = '../html/confirmagenda.html';
 }
 

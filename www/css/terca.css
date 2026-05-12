@@ -96,13 +96,23 @@ body::before {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
+    row-gap: 20px;
     padding: 10px;
     /* Ajuste de largura para caber exatamente dois botões por linha */
     max-width: 200px;
     margin: 0 auto; /* Centraliza o bloco inteiro na tela */
 }  
- 
+
+.time-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    row-gap: 12px;
+    justify-content: center;
+    padding: 8px 0;
+}
+
 /* Mantendo suas classes exatamente como estavam */
 .hora {
     display: flex;
