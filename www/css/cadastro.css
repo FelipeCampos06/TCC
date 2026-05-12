@@ -139,19 +139,19 @@ body{
     top:50%; 
 }
 .email{ 
-    top:57%; 
+    top:56%; 
 }
 .senha{ 
-    top:64%; 
+    top:62%; 
 }
 .confsenha{ 
-    top:71%; 
+    top:68%; 
 }
 .tell{ 
-    top:78%; 
+    top:74%; 
 }
 .cadastro{ 
-    top:86%; 
+    top:80%; 
 }
 
 }
@@ -182,23 +182,23 @@ body{
 
     }         
 
-    .nome{ 
-        top:52%; 
-    }
-    .email{ 
-        top:59%; 
-    }
-    .senha{ 
-        top:66%; 
-    }
-    .confsenha{ 
-        top:73%; 
-    }
-    .tell{ 
-        top:80%; 
-    }
-    .cadastro{ 
-        top:89%; 
-    }
+.nome{ 
+    top:50%; 
+}
+.email{ 
+    top:56%; 
+}
+.senha{ 
+    top:62%; 
+}
+.confsenha{ 
+    top:68%; 
+}
+.tell{ 
+    top:74%; 
+}
+.cadastro{ 
+    top:80%; 
+}
 
     }
