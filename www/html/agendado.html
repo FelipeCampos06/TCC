@@ -16,43 +16,49 @@
 
     <div class="fun">
         <div class="confirmar">
-            <div class="info-header">
-                <p>Informações do Agendamento</p>
+            <div id="mensagemSemAgendamento" class="mensagem-sem-agendamento" style="display: none;">
+                <p>Você não possui um agendamento ainda</p>
             </div>
 
-            <div class="info-detalhes">
-                <div class="info-item">
-                    <span class="info-label">Serviço:</span>
-                    <span class="info-valor" id="infoServico">-</span>
+            <div id="conteudoAgendamento" style="display: block;">
+                <div class="info-header">
+                    <p>Informações do Agendamento</p>
                 </div>
-                <div class="info-item">
-                    <span class="info-label">Valor:</span>
-                    <span class="info-valor" id="infoValor">-</span>
+
+                <div class="info-detalhes">
+                    <div class="info-item">
+                        <span class="info-label">Serviço:</span>
+                        <span class="info-valor" id="infoServico">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Valor:</span>
+                        <span class="info-valor" id="infoValor">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Dia:</span>
+                        <span class="info-valor" id="infoDia">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Horário:</span>
+                        <span class="info-valor" id="infoHorario">-</span>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <span class="info-label">Dia:</span>
-                    <span class="info-valor" id="infoDia">-</span>
+
+                <div class="conf-separator"></div>
+
+                <div class="info-header">
+                    <p>Cancelar Agendamento?</p>
                 </div>
-                <div class="info-item">
-                    <span class="info-label">Horário:</span>
-                    <span class="info-valor" id="infoHorario">-</span>
+
+                <div class="botao">
+                    <button class="sim" onclick="cancelarAgendamento()">
+                        SIM
+                    </button>
+
+                    <button class="nao" onclick="window.location.href='../html/agenda.html'">
+                        NÃO
+                    </button>
                 </div>
-            </div>
-
-            <div class="conf-separator"></div>
-
-            <div class="info-header">
-                <p>Cancelar Agendamento?</p>
-            </div>
-
-            <div class="botao">
-                <button class="sim" onclick="cancelarAgendamento()">
-                    SIM
-                </button>
-
-                <button class="nao" onclick="window.location.href='../html/agenda.html'">
-                    NÃO
-                </button>
             </div>
 
         </div>

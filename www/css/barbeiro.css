@@ -193,7 +193,29 @@ body::before {
     font-size: 13px;
     line-height: 1.2;
 }
- 
+
+/* Container dinâmico para agendamentos */
+.agendamentos-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.nenhum-agendamento {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
+    width: 100%;
+}
+
+.dia-agendamento {
+    font-size: 11px;
+    color: #888;
+    margin-top: 5px;
+}
+
 /* BOLINHAS DE STATUS */
 .status {
     position: absolute;

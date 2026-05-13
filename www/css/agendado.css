@@ -149,6 +149,29 @@ body::before {
 }
 
 /* ==========================
+        MENSAGEM SEM AGENDAMENTO
+========================== */
+.mensagem-sem-agendamento {
+    display: none;
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    font-size: clamp(16px, 4vw, 20px);
+    background-color: #35353F;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+    border-radius: 20px;
+    border: 1px solid #3C82A5;
+}
+
+.mensagem-sem-agendamento p {
+    font-style: italic;
+    color: #B0B0B8;
+    line-height: 1.5;
+}
+
+/* ==========================
         TABLET
 ========================== */
 @media (min-width: 768px) {

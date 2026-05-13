@@ -46,16 +46,23 @@ function exibirInformacoesAgendamento() {
 function confirmarAgendamento() {
     // Armazenar o agendamento confirmado
     const agendamento = {
+        id: Date.now(), // ID único baseado no timestamp
         servico: localStorage.getItem('servico_selecionado'),
         valor: localStorage.getItem('valor_servico'),
         dia: localStorage.getItem('dia_selecionado'),
         horario: localStorage.getItem('horario_selecionado'),
-        data_confirmacao: new Date().toLocaleString('pt-BR')
+        data_confirmacao: new Date().toLocaleString('pt-BR'),
+        status: 'confirmado' // Status do agendamento
     };
-    
-    // Armazenar em localStorage para recuperar depois
+
+    // Salvar como último agendamento (compatibilidade)
     localStorage.setItem('ultimo_agendamento', JSON.stringify(agendamento));
-    
+
+    // Adicionar aos agendamentos confirmados
+    const agendamentosAtuais = JSON.parse(localStorage.getItem('agendamentos_confirmados') || '[]');
+    agendamentosAtuais.push(agendamento);
+    localStorage.setItem('agendamentos_confirmados', JSON.stringify(agendamentosAtuais));
+
     // Redirecionar para a página de confirmação
     window.location.href = '../html/confirmado.html';
 }

@@ -83,11 +83,62 @@ function adicionarHorario() {
     document.getElementById('horarioInput').value = '';
 }
 
-function removeHorario(dia, horario) {
-    const dados = getHorariosDisponiveis();
-    dados[dia] = (dados[dia] || []).filter((item) => item !== horario);
-    saveHorariosDisponiveis(dados);
-    renderHorariosDisponiveis();
+function renderAgendamentosConfirmados() {
+    const container = document.getElementById('agendamentosContainer');
+    if (!container) return;
+
+    const agendamentos = JSON.parse(localStorage.getItem('agendamentos_confirmados') || '[]');
+
+    // Limpar container
+    container.innerHTML = '';
+
+    if (agendamentos.length === 0) {
+        container.innerHTML = '<p class="nenhum-agendamento">Nenhum agendamento confirmado</p>';
+        return;
+    }
+
+    // Renderizar cada agendamento como um card
+    agendamentos.forEach((agendamento, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.id = `agendamento-${agendamento.id || index}`;
+
+        // Status baseado no horário (simulação)
+        const statusClass = getStatusClass(agendamento.horario);
+
+        card.innerHTML = `
+            <span class="status ${statusClass}"></span>
+            <h3>Cliente</h3>
+            <p class="hora-card">${agendamento.horario}</p>
+            <p class="servico">${agendamento.servico}</p>
+            <p class="tempo">${getTempoServico(agendamento.servico)}</p>
+            <p class="dia-agendamento">${agendamento.dia}</p>
+        `;
+
+        container.appendChild(card);
+    });
+
+    console.log('Agendamentos renderizados:', agendamentos.length);
+}
+
+function getStatusClass(horario) {
+    const agora = new Date();
+    const [hora, minuto] = horario.split(':').map(Number);
+    const horarioAgendamento = new Date();
+    horarioAgendamento.setHours(hora, minuto, 0, 0);
+
+    const diffHoras = (horarioAgendamento - agora) / (1000 * 60 * 60);
+
+    if (diffHoras < 0) return 'vermelho'; // Já passou
+    if (diffHoras <= 1) return 'amarelo'; // Próximo
+    return 'verde'; // Futuro
+}
+
+function getTempoServico(servico) {
+    const servicoStr = (servico || '').toLowerCase();
+    if (servicoStr.includes('corte') && servicoStr.includes('barba')) return '1hr';
+    if (servicoStr.includes('corte') || servicoStr.includes('barba')) return '30min';
+    return '30min'; // Default
 }
 
 function iniciarApp() {
@@ -102,13 +153,19 @@ function iniciarApp() {
         if (el) el.classList.add('ready');
     }
 
-    console.log('App iniciado');
+    console.log('App iniciado - Página Barbeiro');
+    
+    // Sincronizar dados de agendamentos
     renderHorariosDisponiveis();
+    renderAgendamentosConfirmados();
 
     const addButton = document.getElementById('btnAddHorario');
     if (addButton) {
         addButton.addEventListener('click', adicionarHorario);
     }
+
+    // Recarregar agendamentos a cada 5 segundos para refletir cancelamentos
+    setInterval(renderAgendamentosConfirmados, 5000);
 }
 
 // Navegador

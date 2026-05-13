@@ -27,6 +27,15 @@ function exibirDetalhesAgendamento() {
     }
 }
 
+function limparDadosCancelamento() {
+    // Remover a flag de cancelamento após exibir
+    localStorage.removeItem('agendamento_cancelado');
+    localStorage.removeItem('ultimo_agendamento');
+    localStorage.removeItem('servico_selecionado');
+    localStorage.removeItem('valor_servico');
+    localStorage.removeItem('dia_selecionado');
+    localStorage.removeItem('horario_selecionado');
+}
 function iniciarApp() {
     if (iniciado) return;
     iniciado = true;
@@ -39,7 +48,7 @@ function iniciarApp() {
         if (el) el.classList.add('ready');
     }
 
-    console.log("App iniciado");
+    console.log("App iniciado - Cancelamento confirmado");
 
     exibirDetalhesAgendamento();
 }
