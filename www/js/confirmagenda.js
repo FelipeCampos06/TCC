@@ -44,13 +44,23 @@ function exibirInformacoesAgendamento() {
 }
 
 function confirmarAgendamento() {
+    const dia = localStorage.getItem('dia_selecionado');
+    const horario = localStorage.getItem('horario_selecionado');
+
+    if (!dia || !horario) {
+        alert('Não foi possível confirmar o agendamento. Dia ou horário não encontrados.');
+        return;
+    }
+
+    removeHorarioDisponivel(dia, horario);
+
     // Armazenar o agendamento confirmado
     const agendamento = {
         id: Date.now(), // ID único baseado no timestamp
         servico: localStorage.getItem('servico_selecionado'),
         valor: localStorage.getItem('valor_servico'),
-        dia: localStorage.getItem('dia_selecionado'),
-        horario: localStorage.getItem('horario_selecionado'),
+        dia,
+        horario,
         data_confirmacao: new Date().toLocaleString('pt-BR'),
         status: 'confirmado' // Status do agendamento
     };

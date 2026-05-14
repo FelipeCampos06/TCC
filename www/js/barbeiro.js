@@ -10,6 +10,15 @@ function saveHorariosDisponiveis(dados) {
     localStorage.setItem('horarios_disponiveis', JSON.stringify(dados));
 }
 
+function removeHorario(dia, horario) {
+    const dados = getHorariosDisponiveis();
+    if (!dados[dia]) return;
+
+    dados[dia] = dados[dia].filter((h) => h !== horario);
+    saveHorariosDisponiveis(dados);
+    renderHorariosDisponiveis();
+}
+
 function renderHorariosDisponiveis() {
     const container = document.getElementById('availabilityList');
     if (!container) return;

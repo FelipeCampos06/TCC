@@ -37,3 +37,15 @@ function ensureHorariosDisponiveisStorage() {
 function saveHorariosDisponiveisStorage(dados) {
     localStorage.setItem('horarios_disponiveis', JSON.stringify(dados));
 }
+
+function removeHorarioDisponivel(dia, horario) {
+    const dados = ensureHorariosDisponiveisStorage();
+    if (!dados[dia] || !Array.isArray(dados[dia])) return false;
+
+    const horariosRestantes = dados[dia].filter((h) => h !== horario);
+    if (horariosRestantes.length === dados[dia].length) return false;
+
+    dados[dia] = horariosRestantes;
+    saveHorariosDisponiveisStorage(dados);
+    return true;
+}
