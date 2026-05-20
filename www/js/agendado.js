@@ -94,36 +94,62 @@ function exibirInformacoesAgendamento() {
 }
 
 function cancelarAgendamento() {
-    // Obter dados do agendamento a ser cancelado
-    const servico = localStorage.getItem('servico_selecionado');
-    const horario = localStorage.getItem('horario_selecionado');
-    const dia = localStorage.getItem('dia_selecionado');
+    (async function(){
+        // Obter dados do agendamento a ser cancelado
+        const servico = localStorage.getItem('servico_selecionado');
+        const horario = localStorage.getItem('horario_selecionado');
+        const dia = localStorage.getItem('dia_selecionado');
 
-    // Criar objeto do agendamento para armazenar como cancelado
-    const agendamento = {
-        servico: servico,
-        valor: localStorage.getItem('valor_servico'),
-        dia: dia,
-        horario: horario,
-        data_confirmacao: new Date().toLocaleString('pt-BR')
-    };
+        const msg = `Deseja realmente cancelar seu agendamento de ${servico} em ${dia} às ${horario}?`;
+        let confirmado = false;
+        if (window.ui && typeof window.ui.showConfirm === 'function') {
+            confirmado = await window.ui.showConfirm(msg, { okText: 'Sim, cancelar', cancelText: 'Não' });
+        } else {
+            confirmado = confirm(msg);
+        }
+        if (!confirmado) return;
 
-    // Remover dos agendamentos confirmados
-    const agendamentosConfirmados = JSON.parse(localStorage.getItem('agendamentos_confirmados') || '[]');
-    const agendamentosFiltrados = agendamentosConfirmados.filter((ag) => {
-        return !(ag.servico === servico && ag.horario === horario && ag.dia === dia);
-    });
+        // Criar objeto do agendamento para armazenar como cancelado
+        const agendamento = {
+            servico: servico,
+            valor: localStorage.getItem('valor_servico'),
+            dia: dia,
+            horario: horario,
+            data_confirmacao: new Date().toLocaleString('pt-BR')
+        };
 
-    localStorage.setItem('agendamentos_confirmados', JSON.stringify(agendamentosFiltrados));
+        // Remover dos agendamentos confirmados (usar id se disponível)
+        const agendamentosConfirmados = JSON.parse(localStorage.getItem('agendamentos_confirmados') || '[]');
+        let agendamentosFiltrados;
+        // se o agendamento atual tiver id salvo no storage (possível fluxo anterior), use id
+        const currentId = localStorage.getItem('agendamento_id');
+        if (currentId) {
+            agendamentosFiltrados = agendamentosConfirmados.filter((ag) => String(ag.id) !== String(currentId));
+        } else {
+            agendamentosFiltrados = agendamentosConfirmados.filter((ag) => {
+                return !(ag.servico === servico && ag.horario === horario && ag.dia === dia);
+            });
+        }
 
-    // Armazenar como último agendamento cancelado para exibição na página de cancelado
-    localStorage.setItem('ultimo_agendamento', JSON.stringify(agendamento));
-    localStorage.setItem('agendamento_cancelado', 'true');
+        localStorage.setItem('agendamentos_confirmados', JSON.stringify(agendamentosFiltrados));
 
-    console.log('Agendamento cancelado:', agendamento);
-    
-    // Redirecionar para a página de cancelamento
-    window.location.href = '../html/cancelado.html';
+        // Armazenar como último agendamento cancelado para exibição na página de cancelado
+        localStorage.setItem('ultimo_agendamento', JSON.stringify(agendamento));
+        localStorage.setItem('agendamento_cancelado', 'true');
+
+        // Opcional: limpar seleção do cliente
+        localStorage.removeItem('servico_selecionado');
+        localStorage.removeItem('valor_servico');
+        localStorage.removeItem('dia_selecionado');
+        localStorage.removeItem('horario_selecionado');
+        localStorage.removeItem('agendamento_id');
+
+        // Forçar atualização para outras telas (alguns webviews não disparam storage events): regravando a chave
+        localStorage.setItem('agendamentos_confirmados_last_update', new Date().toISOString());
+
+        // Redirecionar para a página de cancelamento
+        window.location.href = '../html/cancelado.html';
+    })();
 }
 
 function iniciarApp() {
@@ -140,6 +166,42 @@ function iniciarApp() {
 
     console.log("App iniciado - Página de Confirmação");
     
+    // Se houve cancelamento (pelo cliente ou pelo barbeiro), redirecionar para cancelado
+    // somente se o cancelamento corresponder ao agendamento que o cliente está visualizando.
+    try {
+        const flag = localStorage.getItem('agendamento_cancelado');
+        const ultimo = localStorage.getItem('ultimo_agendamento');
+        const servicoSel = localStorage.getItem('servico_selecionado');
+        const horarioSel = localStorage.getItem('horario_selecionado');
+        const diaSel = localStorage.getItem('dia_selecionado');
+        const currentId = localStorage.getItem('agendamento_id');
+
+        if (flag === 'true' && ultimo) {
+            const dados = JSON.parse(ultimo);
+            let match = false;
+
+            // Prefer match por id quando disponível
+            if (dados.id && currentId) {
+                match = String(dados.id) === String(currentId);
+            }
+
+            // Fallback: comparar dia/horario/servico se id não estiver presente
+            if (!match) {
+                if (dados.dia && dados.horario && dados.servico && servicoSel && horarioSel && diaSel) {
+                    match = (dados.dia === diaSel && dados.horario === horarioSel && dados.servico === servicoSel);
+                }
+            }
+
+            if (match) {
+                window.location.href = '../html/cancelado.html';
+                return;
+            }
+        }
+    } catch (e) {
+        // Se qualquer erro, não redirecionar automaticamente
+        console.warn('Erro ao avaliar flag de cancelamento:', e);
+    }
+
     // Exibir as informações do agendamento
     exibirInformacoesAgendamento();
 }

@@ -73,6 +73,12 @@ function confirmarAgendamento() {
     agendamentosAtuais.push(agendamento);
     localStorage.setItem('agendamentos_confirmados', JSON.stringify(agendamentosAtuais));
 
+    // Limpar flag de cancelamento anterior (se houver) porque este é um novo agendamento
+    localStorage.removeItem('agendamento_cancelado');
+
+    // Sinalizar para outras views que houve atualização
+    localStorage.setItem('agendamentos_confirmados_last_update', new Date().toISOString());
+
     // Redirecionar para a página de confirmação
     window.location.href = '../html/confirmado.html';
 }

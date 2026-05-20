@@ -1,6 +1,16 @@
 const DIAS = ['Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 let iniciado = false;
 
+// Helper para parse de HH:MM -> minutos desde 00:00
+function parseTimeToMinutes(t) {
+    if (!t || typeof t !== 'string') return 0;
+    const parts = t.split(':').map(Number);
+    if (!parts.length) return 0;
+    const h = Number.isFinite(parts[0]) ? parts[0] : 0;
+    const m = Number.isFinite(parts[1]) ? parts[1] : 0;
+    return h * 60 + m;
+}
+
 function getHorariosDisponiveis() {
     const dados = ensureHorariosDisponiveisStorage();
     return Object.fromEntries(DIAS.map((dia) => [dia, dados[dia] ? [...new Set(dados[dia])] : []]));
@@ -55,7 +65,14 @@ function renderHorariosDisponiveis() {
                 removeBtn.textContent = '×';
                 removeBtn.title = `Remover ${horario}`;
                 removeBtn.addEventListener('click', () => {
-                    removeHorario(dia, horario);
+                    // small confirm using ui
+                    if (window.ui && typeof window.ui.showConfirm === 'function') {
+                        window.ui.showConfirm(`Remover horário ${horario} em ${dia}?`).then((ok) => {
+                            if (ok) removeHorario(dia, horario);
+                        });
+                    } else if (confirm(`Remover horário ${horario} em ${dia}?`)) {
+                        removeHorario(dia, horario);
+                    }
                 });
 
                 chip.appendChild(removeBtn);
@@ -70,9 +87,31 @@ function renderHorariosDisponiveis() {
 
 function adicionarHorario() {
     const dia = document.getElementById('diaSelect').value;
-    const horario = document.getElementById('horarioInput').value;
+    const horarioSelect = document.getElementById('horarioSelect');
+    const horario = horarioSelect ? horarioSelect.value : '';
     if (!horario) {
-        alert('Escolha um horário para adicionar.');
+        if (window.ui && typeof window.ui.showToast === 'function') window.ui.showToast('Escolha um horário para adicionar.');
+        else alert('Escolha um horário para adicionar.');
+        return;
+    }
+
+    // Validação: apenas horas redondas (minutos === 00) e entre 08:00 e 18:00
+    const timeMatch = /^([0-9]{1,2}):([0-9]{2})$/.exec(horario);
+    if (!timeMatch) {
+        if (window.ui && typeof window.ui.showToast === 'function') window.ui.showToast('Formato de horário inválido. Use HH:MM.');
+        else alert('Formato de horário inválido. Use HH:MM.');
+        return;
+    }
+    const hh = parseInt(timeMatch[1], 10);
+    const mm = parseInt(timeMatch[2], 10);
+    if (mm !== 0) {
+        if (window.ui && typeof window.ui.showToast === 'function') window.ui.showToast('Somente horas cheias (ex: 10:00).');
+        else alert('Somente horas cheias (ex: 10:00).');
+        return;
+    }
+    if (hh < 8 || hh > 18) {
+        if (window.ui && typeof window.ui.showToast === 'function') window.ui.showToast('Horários permitidos entre 08:00 e 18:00.');
+        else alert('Horários permitidos entre 08:00 e 18:00.');
         return;
     }
 
@@ -81,21 +120,22 @@ function adicionarHorario() {
         dados[dia] = [];
     }
     if (dados[dia].includes(horario)) {
-        alert('Esse horário já está disponível para o dia selecionado.');
+        if (window.ui && typeof window.ui.showToast === 'function') window.ui.showToast('Esse horário já está disponível para o dia selecionado.');
+        else alert('Esse horário já está disponível para o dia selecionado.');
         return;
     }
 
     dados[dia].push(horario);
-    dados[dia].sort();
+    // Ordenar numericamente por hora
+    dados[dia].sort((a, b) => parseTimeToMinutes(a) - parseTimeToMinutes(b));
     saveHorariosDisponiveis(dados);
     renderHorariosDisponiveis();
-    document.getElementById('horarioInput').value = '';
+    if (document.getElementById('horarioSelect')) document.getElementById('horarioSelect').selectedIndex = 0;
 }
 
 function renderAgendamentosConfirmados() {
     const container = document.getElementById('agendamentosContainer');
     if (!container) return;
-
     const agendamentos = JSON.parse(localStorage.getItem('agendamentos_confirmados') || '[]');
 
     // Limpar container
@@ -106,13 +146,33 @@ function renderAgendamentosConfirmados() {
         return;
     }
 
-    // Renderizar cada agendamento como um card
-    agendamentos.forEach((agendamento, index) => {
+    // Ordenar agendamentos por dia (segundo a ordem de DIAS) e por horário (HH:MM)
+    const dayOrder = DIAS;
+    const parseTimeToMinutes = (t) => {
+        if (!t || typeof t !== 'string') return 0;
+        const parts = t.split(':').map(Number);
+        if (parts.length === 0) return 0;
+        const h = Number.isFinite(parts[0]) ? parts[0] : 0;
+        const m = Number.isFinite(parts[1]) ? parts[1] : 0;
+        return h * 60 + m;
+    };
+
+    const sorted = [...agendamentos].sort((a, b) => {
+        const ai = dayOrder.indexOf(a.dia);
+        const bi = dayOrder.indexOf(b.dia);
+        const aIndex = ai === -1 ? dayOrder.length : ai;
+        const bIndex = bi === -1 ? dayOrder.length : bi;
+        if (aIndex !== bIndex) return aIndex - bIndex;
+        return parseTimeToMinutes(a.horario) - parseTimeToMinutes(b.horario);
+    });
+
+    // Renderizar usando DocumentFragment para performance
+    const frag = document.createDocumentFragment();
+    sorted.forEach((agendamento, index) => {
         const card = document.createElement('div');
         card.className = 'card';
         card.id = `agendamento-${agendamento.id || index}`;
 
-        // Status baseado no horário (simulação)
         const statusClass = getStatusClass(agendamento.horario);
 
         card.innerHTML = `
@@ -124,10 +184,23 @@ function renderAgendamentosConfirmados() {
             <p class="dia-agendamento">${agendamento.dia}</p>
         `;
 
-        container.appendChild(card);
+        // Botão para o barbeiro cancelar o agendamento
+        const cancelarBtn = document.createElement('button');
+        cancelarBtn.className = 'btn-cancelar-agendamento';
+        cancelarBtn.type = 'button';
+        cancelarBtn.textContent = '×';
+        cancelarBtn.title = 'Cancelar este agendamento';
+        cancelarBtn.addEventListener('click', () => {
+            cancelarAgendamentoPorBarbeiro(agendamento);
+        });
+
+        card.appendChild(cancelarBtn);
+        frag.appendChild(card);
     });
 
-    console.log('Agendamentos renderizados:', agendamentos.length);
+    container.appendChild(frag);
+
+    console.log('Agendamentos renderizados:', sorted.length);
 }
 
 function getStatusClass(horario) {
@@ -173,8 +246,67 @@ function iniciarApp() {
         addButton.addEventListener('click', adicionarHorario);
     }
 
+    // Gerar select de horários (horas cheias) entre 08:00 e 18:00
+    const horarioSelectEl = document.getElementById('horarioSelect');
+    if (horarioSelectEl) {
+        horarioSelectEl.innerHTML = '';
+        const placeholder = document.createElement('option');
+        placeholder.value = '';
+        placeholder.textContent = 'Selecione horário';
+        horarioSelectEl.appendChild(placeholder);
+        for (let h = 8; h <= 18; h++) {
+            const hh = String(h).padStart(2, '0') + ':00';
+            const opt = document.createElement('option');
+            opt.value = hh;
+            opt.textContent = hh;
+            horarioSelectEl.appendChild(opt);
+        }
+    }
+
     // Recarregar agendamentos a cada 5 segundos para refletir cancelamentos
     setInterval(renderAgendamentosConfirmados, 5000);
+
+    // Reagir a mudanças do localStorage vindas de outra janela/webview
+    window.addEventListener('storage', (e) => {
+        if (!e) return;
+        if (e.key === 'agendamentos_confirmados' || e.key === 'agendamentos_confirmados_last_update' || e.key === 'horarios_disponiveis') {
+            renderAgendamentosConfirmados();
+            renderHorariosDisponiveis();
+        }
+    });
+}
+
+async function cancelarAgendamentoPorBarbeiro(agendamento) {
+    const msg = `Deseja realmente cancelar o agendamento de ${agendamento.servico} em ${agendamento.dia} às ${agendamento.horario}?`;
+    let confirmado = false;
+    if (window.ui && typeof window.ui.showConfirm === 'function') {
+        confirmado = await window.ui.showConfirm(msg, { okText: 'Sim, cancelar', cancelText: 'Não' });
+    } else {
+        confirmado = confirm(msg);
+    }
+    if (!confirmado) return;
+
+    const agendamentosAtuais = JSON.parse(localStorage.getItem('agendamentos_confirmados') || '[]');
+
+    let filtrados;
+    if (agendamento.id !== undefined && agendamento.id !== null) {
+        filtrados = agendamentosAtuais.filter((a) => a.id !== agendamento.id);
+    } else {
+        filtrados = agendamentosAtuais.filter((a) => !(a.dia === agendamento.dia && a.horario === agendamento.horario && a.servico === agendamento.servico));
+    }
+
+    localStorage.setItem('agendamentos_confirmados', JSON.stringify(filtrados));
+
+    const payload = Object.assign({}, agendamento, { data_confirmacao: new Date().toLocaleString('pt-BR'), cancelled_by: 'barbeiro' });
+    localStorage.setItem('ultimo_agendamento', JSON.stringify(payload));
+    localStorage.setItem('agendamento_cancelado', 'true');
+
+    // Atualizar a UI
+    renderAgendamentosConfirmados();
+    renderHorariosDisponiveis();
+
+    if (window.ui && typeof window.ui.showToast === 'function') window.ui.showToast('Agendamento cancelado. Cliente notificado.');
+    else alert('Agendamento cancelado com sucesso. O cliente será notificado.');
 }
 
 // Navegador

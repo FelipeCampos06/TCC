@@ -215,32 +215,6 @@ body::before {
     color: #888;
     margin-top: 5px;
 }
-
-/* BOLINHAS DE STATUS */
-.status {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-}
- 
-.verde {
-    background-color: #2ecc71;
- 
-}
- 
-.amarelo {
-    background-color: #f1c40f;
- 
-}
- 
-.vermelho {
-    background-color: #e74c3c;
- 
-}
  
 /* OPÇÕES (AGENDAR / CANCELAR) */
 .opcoes {
@@ -317,4 +291,86 @@ body::before {
     .time-list {
         justify-content: center;
     }
+}
+
+/* Botão X para cancelar agendamento no card (pequeno, no canto) */
+.btn-cancelar-agendamento {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* Confirm modal */
+.confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.confirm-box {
+    background: #fff;
+    color: #222;
+    padding: 16px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 320px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    text-align: left;
+}
+.confirm-message {
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+.confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+.confirm-actions button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+.confirm-cancel {
+    background: #e0e0e0;
+    color: #222;
+}
+.confirm-ok {
+    background: #e74c3c;
+    color: #fff;
+}
+
+/* Small toast */
+.ui-toast {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 160ms ease-in-out;
+}
+.ui-toast.show {
+    opacity: 1;
 }

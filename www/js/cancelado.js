@@ -35,6 +35,8 @@ function limparDadosCancelamento() {
     localStorage.removeItem('valor_servico');
     localStorage.removeItem('dia_selecionado');
     localStorage.removeItem('horario_selecionado');
+    // Sinalizar atualização para outras views
+    localStorage.setItem('agendamentos_confirmados_last_update', new Date().toISOString());
 }
 function iniciarApp() {
     if (iniciado) return;
@@ -51,6 +53,16 @@ function iniciarApp() {
     console.log("App iniciado - Cancelamento confirmado");
 
     exibirDetalhesAgendamento();
+
+    // Ligar botão OK para limpar dados e voltar para tela de agendamento (sem agendamento)
+    const btn = document.getElementById('btnOkCancelado');
+    if (btn) {
+        btn.addEventListener('click', () => {
+            limparDadosCancelamento();
+            // Redirecionar para página onde o cliente verifica agendamento
+            window.location.href = '../html/agendado.html';
+        });
+    }
 }
 
 // Navegador
