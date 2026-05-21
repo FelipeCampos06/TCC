@@ -79,8 +79,28 @@ function confirmarAgendamento() {
     // Sinalizar para outras views que houve atualização
     localStorage.setItem('agendamentos_confirmados_last_update', new Date().toISOString());
 
-    // Redirecionar para a página de confirmação
-    window.location.href = '../html/confirmado.html';
+    // Mostrar a tela de confirmação dentro da mesma página
+    mostrarConfirmacaoAgendamento(agendamento);
+}
+
+function mostrarConfirmacaoAgendamento(agendamento) {
+    const confirmSection = document.getElementById('confirmSection');
+    const successSection = document.getElementById('successSection');
+
+    if (confirmSection) confirmSection.classList.add('oculto');
+    if (successSection) successSection.classList.remove('oculto');
+
+    const elServico = document.getElementById('detalhesServico');
+    const elValor = document.getElementById('detalhesValor');
+    const elDia = document.getElementById('detalhesDia');
+    const elHorario = document.getElementById('detalhesHorario');
+    const elData = document.getElementById('detalhesData');
+
+    if (elServico) elServico.textContent = agendamento.servico || '-';
+    if (elValor) elValor.textContent = agendamento.valor || '-';
+    if (elDia) elDia.textContent = agendamento.dia || '-';
+    if (elHorario) elHorario.textContent = agendamento.horario || '-';
+    if (elData) elData.textContent = agendamento.data_confirmacao || '-';
 }
 
 function iniciarApp() {

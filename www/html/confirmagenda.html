@@ -20,7 +20,7 @@
     </div>
 
     <div class="fun">
-        <div class="confirmar">
+        <div id="confirmSection" class="confirmar">
             <div class="info-header">
                 <p>Informações do Agendamento</p>
             </div>
@@ -59,7 +59,41 @@
                     NÃO
                 </button>
             </div>
+        </div>
 
+        <div id="successSection" class="confirmar oculto">
+            <div class="info-header">
+                <p>✓ AGENDAMENTO CONFIRMADO!</p>
+            </div>
+
+            <div class="info-detalhes">
+                <div class="info-item">
+                    <span class="info-label">Serviço:</span>
+                    <span class="info-valor" id="detalhesServico">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Valor:</span>
+                    <span class="info-valor" id="detalhesValor">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Dia:</span>
+                    <span class="info-valor" id="detalhesDia">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Horário:</span>
+                    <span class="info-valor" id="detalhesHorario">-</span>
+                </div>
+                <div class="info-item" style="border-bottom: none;">
+                    <span class="info-label">Data da Confirmação:</span>
+                    <span class="info-valor" id="detalhesData" style="font-size: 14px;">-</span>
+                </div>
+            </div>
+
+            <div class="botao">
+                <button class="sim" onclick="window.location.href='../html/agenda.html'">
+                    VOLTAR
+                </button>
+            </div>
         </div>
     </div>
 
